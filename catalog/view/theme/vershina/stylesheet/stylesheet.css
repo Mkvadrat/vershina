@@ -1,0 +1,513 @@
+/* fonts */
+@font-face {
+    font-family: 'Myriad Pro Regular';
+    src: url('MyriadPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url('MaterialIcons-Regular.ttf') format('truetype');
+  }
+/* fonts */
+body * {
+    font-family: 'Myriad Pro Regular';
+    color: #000;
+}
+img {
+    width: 100%;
+}
+a:visited,
+a:focus,
+a {
+    color: #333;
+    text-decoration: underline;
+}
+a:hover {
+    color: #333;
+    text-decoration: none;
+}
+p {
+    font-family: 'Myriad Pro Regular';
+    font-size: 18px;
+    line-height: 24px;
+    color: #333333;
+    margin-top: 0;
+}
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+.w-button {
+    display: inline-block;
+    padding: 13px 18px;
+    background: #fff;
+    font-size: 16px;
+    color: #444444;
+    border: 1px solid #d3d4d5;
+    text-decoration: none;
+}
+.w-button:hover {
+    
+}
+header {
+    background-image: url('../image/banner.jpg');
+    background-size: 100% auto;
+    background-position: center;
+    box-shadow: inset 0 120px 120px -43px rgba(0, 0, 0, 0.75); 
+    padding-top: 20px;
+    min-height: 640px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+header * {
+    color: #fff;
+    letter-spacing: -0.5px;
+    font-family: 'Ubuntu', sans-serif;
+}
+header .w-button {
+    padding: 13px 17px; 
+}
+.header-top>div {
+    height: 93px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.logo a span {
+    font-size: 12px;
+    line-height: 18px;
+    display: inline-block;
+    font-style: italic;
+    padding-top: 5px;
+}
+div.header-info {
+    padding-left: 30px;
+    justify-content: flex-start;
+}
+.header-info span {
+    width: 40%;
+    position: relative;
+}
+.header-info span+span {
+    margin-left: 40px;
+}
+.header-info span i {
+    position: absolute;
+    top: -4px;
+    left: -28px;
+}
+.header-info p {
+    width: 100%;
+    margin-top: 0;
+    font-size: 16px;
+    line-height: 24px;
+}
+div.header-contacts {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.header-contacts a {
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 18px;
+}
+.header-contacts a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+.header-contacts a+a {
+    margin-bottom: 20px;
+}
+.header-purchase a {
+    width: 155px;
+    padding: 10px 17px;
+}
+div.header-purchase {
+    justify-content: space-between;
+    flex-direction: column;
+}
+.header-purchase a i {
+    color: #333;
+    position: relative;
+    top: 6px;
+    left: 3px;
+    line-height: 10px;
+}
+.header-purchase a span {
+    color: #333;
+    display: inline-block;
+    background: #f8eb0d;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    left: 3px;
+}
+header .menu {
+    width: 100%;
+    background: #333333;
+    height: 70px;
+}
+header .menu ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 70px;
+}
+header .menu ul li a {
+    display: inline-block;
+    font-size: 20px;
+    line-height: 70px;
+    height: 100%;
+    padding: 0 30px;
+    border-left: 1px solid #000;
+    text-decoration: none;
+}
+header .menu ul li:last-child a {
+    border-right: 1px solid #000;
+}
+header .menu ul li a:hover {
+    background: #f8eb0d;
+    color: #333333;
+}
+aside,
+section {
+    margin-top: 17px;
+}
+.search {
+    display: inline-block;
+    width: 100%;
+    float: left;
+    margin-bottom: 17px;
+}
+.search input {
+    display: inline-block;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 70%;
+    float: left;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333333;
+    font-style: italic;
+    padding: 0 20px;
+    border: 1px solid #e0e0e0;
+    outline: none;
+}
+.search input:focus,
+.search input:-moz-placeholder,
+.search input::-moz-placeholder,
+.search input:-ms-input-placeholder,
+.search input::-webkit-input-placeholder {
+    outline: none;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: #a6a6a6;
+}
+.search button:focus {
+    outline: none;
+}
+.search button {
+    display: inline-block;
+    float: left;
+    width: 30%;
+    height: 50px;
+    border-radius: 0;
+    border: 1px solid #e0e0e0;
+    border-left: none;
+    background: #f6f6f6;
+}
+.search button i {
+    color: #20282e;
+    line-height: 50px;
+}
+.catalog-list {
+    background: #f0f0f0;
+    float: left;
+    width: 100%;
+}
+.catalog-list * {
+    font-family: 'Ubuntu', sans-serif;
+}
+.catalog-list span {
+    font-size: 18px;
+    line-height: 18px;
+    text-decoration: underline;
+    display: block;
+    color: #323232;
+    padding: 15px 15px;
+    border-top: 1px solid #e0e0e0;
+    cursor: pointer;
+}
+.catalog-list span:first-child {
+    border-top: none;
+    border-radius: 20px 20px 0 0;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: default;
+}
+.catalog-list span+ul {
+    background: #e6e6e6;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: none;
+}
+.catalog-list span+ul p {
+    margin: 0;
+}
+.catalog-list span+ul a {
+    font-size: 18px;
+    line-height: 18px;
+    padding: 10px 0 10px 35px;
+    display: block;
+}
+span.active-rubric {
+    /* background: #ebebeb; */
+    border-bottom: 1px solid #dedede;
+}
+.title {
+    font-size: 33px;
+    line-height: 50px;
+    color: #333333;
+    font-family: 'Myriad Pro Regular';
+    margin: 0 0 17px 0;
+}
+.popular-list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.popular-item {
+    width: 31%;
+    border: 1px solid #e0e0e0;
+    padding: 25px;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 27px;
+    transition: 0.5s;
+}
+.popular-item:hover {
+    box-shadow: inset 0.5px 0.5px 50px rgba(248,235,13,0.09), inset -0.5px -0.5px 50px rgba(248,235,13,0.09);
+}
+.popular-item .img {
+    display: inline-block;
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+    height: 70%;
+}
+.popular-item .img img {
+    height: 100%;
+    width: auto;
+    padding: 30px 0;
+}
+.popular-item .name {
+    text-align: left;
+    float: left;
+    width: 100%;
+    text-decoration: none;
+    font-family: 'Myriad Pro Regular';
+    font-size: 14px;
+    line-height: 24px;
+    text-transform: uppercase;
+}
+.popular-item .name:hover {
+    text-decoration: underline;
+}
+.popular-item .price {
+    text-align: left;
+    float: left;
+    width: 100%;
+    font-family: 'Myriad Pro Regular';
+    font-size: 23px;
+    line-height: 24px;
+    color: #999999;
+    padding: 10px 0;
+    margin-top: 6px;
+    border-top: 1px solid #e0e0e0;
+}
+.popular-item .price span {
+    font-family: 'Myriad Pro Regular';
+    color: #999999;
+}
+.popular-item .more {
+    float: left;
+    width: 65%;
+}
+.popular-item .add-to-bucket {
+    display: inline-block;
+    float: right;
+    width: 30%;
+    height: 50px;
+    background: #333333;
+}
+.popular-item .add-to-bucket i {
+    line-height: 50px;
+    color: #f8eb0d;
+    display: inline-block;
+}
+.seo-text {
+
+}
+.sub-title {
+    color: #333333;
+    font-size: 24px;
+    line-height: 24px;
+    font-family: 'Myriad Pro Regular';
+    margin: 10px 0 20px;
+}
+.footer {
+    background: #333333;
+}
+.footer * {
+    color: #a0a0a0;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    line-height: 18px;
+}
+.footer .menu ul {
+    list-style: none;
+}
+.footer ul {
+    list-style-position: inside;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px 0;
+    margin: 20px -10px 20px 0; 
+}
+
+.footer ul li a {
+    padding: 15px 0;
+    text-decoration: underline;
+    display: inline-block;
+}
+.footer ul li a:hover {
+    color: #a0a0a0;
+    text-decoration: none;
+}
+.footer .services ul {
+    border-left: 1px solid #474747;
+    padding-left: 20px;
+}
+.footer .services ul li {
+    list-style: none;
+    position: relative;
+}
+.footer .services ul li::before {
+    content: '•';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.footer-info {
+    padding: 20px 0;
+}
+.footer-info>div {
+    border-left: 1px solid #474747;
+    padding-left: 10px;
+    height: 298px;
+}
+.footer-info .tels {
+    margin-bottom: 10px;
+}
+.footer-info .tels a {
+    display: block;
+    font-size: 24px;
+    line-height: 30px;
+    text-decoration: none;
+}
+.footer-info .tels a:hover {
+    color: #a0a0a0;
+    text-decoration: underline;
+}
+.footer-info p {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 15px;
+}
+.footer-info>div>a {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 20px;
+    display: inline-block;
+    margin: 30px 0 50px;
+}
+.mega-footer {
+    margin: 20px 0;
+}
+.mega-footer p {
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0;
+    padding: 0;
+    color: #333333;
+}
+.mega-footer p i {
+    color: #333333;
+    display: inline;
+    line-height: 1px;
+    position: relative;
+    top: 7px;
+}
+.mega-footer .socials {
+    display: inline-block;
+    margin-top: 10px;
+}
+.mega-footer .socials a {
+    display: inline-block;
+    width: 35px;
+    border-radius: 100%;
+    margin-left: 5px;
+    transition: .5s;
+}
+.mega-footer .made-with {
+    float: right;
+    margin-top: 7px;
+}
+.mega-footer .made-with img {
+    width: 40px;
+    margin-left: 15px;
+}

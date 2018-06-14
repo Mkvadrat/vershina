@@ -90,6 +90,12 @@ class ControllerCommonHeader extends Controller {
 		$data['checkout'] = $this->url->link('checkout/checkout', '', true);
 		$data['contact'] = $this->url->link('information/contact');
 		$data['telephone'] = $this->config->get('config_telephone');
+		$data['fax'] = $this->config->get('config_fax');
+		$data['slogan'] = $this->config->get('config_slogan');
+		$data['open'] = $this->config->get('config_open');
+		$data['address'] = $this->config->get('config_address');
+		$data['info_a'] = $this->config->get('config_information_a');
+		$data['info_b'] = $this->config->get('config_information_b');
 
 		// Menu
 		$this->load->model('design/custommenu');

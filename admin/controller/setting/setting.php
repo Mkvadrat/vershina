@@ -469,6 +469,12 @@ class ControllerSettingSetting extends Controller {
 		} else {
 			$data['config_address'] = $this->config->get('config_address');
 		}
+		
+		if (isset($this->request->post['config_slogan'])) {
+			$data['config_slogan'] = $this->request->post['config_slogan'];
+		} else {
+			$data['config_slogan'] = $this->config->get('config_slogan');
+		}
 
 		if (isset($this->request->post['config_geocode'])) {
 			$data['config_geocode'] = $this->request->post['config_geocode'];
@@ -516,6 +522,18 @@ class ControllerSettingSetting extends Controller {
 			$data['config_open'] = $this->request->post['config_open'];
 		} else {
 			$data['config_open'] = $this->config->get('config_open');
+		}
+		
+		if (isset($this->request->post['config_information_a'])) {
+			$data['config_information_a'] = $this->request->post['config_information_a'];
+		} else {
+			$data['config_information_a'] = $this->config->get('config_information_a');
+		}
+		
+		if (isset($this->request->post['config_information_b'])) {
+			$data['config_information_b'] = $this->request->post['config_information_b'];
+		} else {
+			$data['config_information_b'] = $this->config->get('config_information_b');
 		}
 
 		if (isset($this->request->post['config_comment'])) {

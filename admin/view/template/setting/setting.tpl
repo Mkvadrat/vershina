@@ -112,6 +112,12 @@
                   <?php } ?>
                 </div>
               </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-slogan">Слоган</label>
+                <div class="col-sm-10">
+                  <textarea name="config_slogan" placeholder="Слоган" rows="5" id="input-slogan" class="form-control"><?php echo $config_slogan; ?></textarea>
+                </div>
+              </div>
               <div class="form-group required">
                 <label class="col-sm-2 control-label" for="input-address"><?php echo $entry_address; ?></label>
                 <div class="col-sm-10">
@@ -155,6 +161,18 @@
                 <label class="col-sm-2 control-label" for="input-image"><?php echo $entry_image; ?></label>
                 <div class="col-sm-10"><a href="" id="thumb-image" data-toggle="image" class="img-thumbnail"><img src="<?php echo $thumb; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>
                   <input type="hidden" name="config_image" value="<?php echo $config_image; ?>" id="input-image" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-information">Информациионные данные 1</label>
+                <div class="col-sm-10">
+                  <textarea name="config_information_a" placeholder="Информациионные данные" rows="5" id="input-information" class="form-control"><?php echo $config_information_a; ?></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-information">Информациионные данные 2</label>
+                <div class="col-sm-10">
+                  <textarea name="config_information_b" placeholder="Информациионные данные" rows="5" id="input-information" class="form-control"><?php echo $config_information_b; ?></textarea>
                 </div>
               </div>
               <div class="form-group">
