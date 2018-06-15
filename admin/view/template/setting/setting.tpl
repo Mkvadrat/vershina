@@ -176,6 +176,18 @@
                 </div>
               </div>
               <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-information">Информациионные данные 3</label>
+                <div class="col-sm-10">
+                  <textarea name="config_information_c" placeholder="Информациионные данные" rows="5" id="input-information" class="form-control summernote"><?php echo $config_information_c; ?></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-soc-links">Социальные сети</label>
+                <div class="col-sm-10">
+                  <textarea name="config_soc_links" placeholder="Социальные сети" rows="5" id="input-soc-links" class="form-control summernote"><?php echo $config_soc_links; ?></textarea>
+                </div>
+              </div>
+              <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-open"><span data-toggle="tooltip" data-container="#tab-general" title="<?php echo $help_open; ?>"><?php echo $entry_open; ?></span></label>
                 <div class="col-sm-10">
                   <textarea name="config_open" rows="5" placeholder="<?php echo $entry_open; ?>" id="input-open" class="form-control"><?php echo $config_open; ?></textarea>
@@ -1510,5 +1522,11 @@ $('select[name=\'config_country_id\']').on('change', function() {
 });
 
 $('select[name=\'config_country_id\']').trigger('change');
-//--></script></div>
+//--></script>
+
+<script type="text/javascript" src="view/javascript/summernote/summernote.js"></script>
+<link href="view/javascript/summernote/summernote.css" rel="stylesheet" />
+<script type="text/javascript" src="view/javascript/summernote/opencart.js"></script>
+
+</div>
 <?php echo $footer; ?> 

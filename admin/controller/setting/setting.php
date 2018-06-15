@@ -535,6 +535,18 @@ class ControllerSettingSetting extends Controller {
 		} else {
 			$data['config_information_b'] = $this->config->get('config_information_b');
 		}
+		
+		if (isset($this->request->post['config_information_c'])) {
+			$data['config_information_c'] = $this->request->post['config_information_c'];
+		} else {
+			$data['config_information_c'] = $this->config->get('config_information_c');
+		}
+		
+		if (isset($this->request->post['config_soc_links'])) {
+			$data['config_soc_links'] = $this->request->post['config_soc_links'];
+		} else {
+			$data['config_soc_links'] = $this->config->get('config_soc_links');
+		}
 
 		if (isset($this->request->post['config_comment'])) {
 			$data['config_comment'] = $this->request->post['config_comment'];

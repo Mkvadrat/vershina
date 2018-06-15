@@ -47,62 +47,69 @@
 <?php } ?>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="row header-top">
-                <div class="col-md-2 logo">
-										<?php if ($logo) { ?>
-											<a href="<?php echo $home; ?>">
-												<img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" />
-												<span><?php echo $slogan; ?></span>
-											</a>
-										<?php } else { ?>
-											<a href="<?php echo $home; ?>"><?php echo $name; ?><span><?php echo $slogan; ?></span></a>
-										<?php } ?>
+	<header>
+        <div class="container-fluid header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 logo">
+						<?php if ($logo) { ?>
+							<a href="<?php echo $home; ?>">
+								<img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" />
+								<span><?php echo $slogan; ?></span>
+							</a>
+						<?php } else { ?>
+							<a href="<?php echo $home; ?>"><?php echo $name; ?><span><?php echo $slogan; ?></span></a>
+						<?php } ?>
+                    </div>
+                    <div class="col-md-2 collback">
+                        <a href="#" class="w-button">Обратный звонок</a>
+                    </div>
+                    <div class="col-md-4 header-info">
+                        <span><i class="material-icons">domain</i><?php echo $info_a; ?></span>
+						<span><i class="material-icons">local_shipping</i><?php echo $info_b; ?></span>
+						<p><?php echo $open; ?></p>
+                    </div>
+                    <div class="col-md-2 header-contacts">
+						<span><?php echo $address; ?></span>
+						<a href="tel:<?php echo $telephone; ?>"><?php echo $telephone; ?></a>
+						<a href="tel:<?php echo $fax; ?>"><?php echo $fax; ?></a>
+                    </div>
+					
+                    <?php echo $cart; ?>
+					
                 </div>
-                <div class="col-md-2 collback">
-                    <a href="#" class="w-button">Обратный звонок</a>
-                </div>
-                <div class="col-md-4 header-info">
-                    <span><i class="material-icons">domain</i><?php echo $info_a; ?></span>
-                    <span><i class="material-icons">local_shipping</i><?php echo $info_b; ?></span>
-                    <p><?php echo $open; ?></p>
-                </div>
-                <div class="col-md-2 header-contacts">
-                    <span><?php echo $address; ?></span>
-                    <a href="tel:<?php echo $telephone; ?>"><?php echo $telephone; ?></a>
-                    <a href="tel:<?php echo $fax; ?>"><?php echo $fax; ?></a>
-                </div>
-								
-								<?php echo $cart; ?>
-
             </div>
         </div>
         <div class="container-fluid menu">
             <div class="container">
                 <div class="row">
-										<ul class="col-md-12">
-											<?php foreach ($categories as $category) { ?>
-											<?php if ($category['children']) { ?>
-											<li class="dropdown"><a href="<?php echo $category['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $category['name']; ?></a>
-												<div class="dropdown-menu">
-													<div class="dropdown-inner">
-														<?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
-														<ul class="list-unstyled">
-															<?php foreach ($children as $child) { ?>
-															<li><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
-															<?php } ?>
-														</ul>
-														<?php } ?>
-													</div>
-													<a href="<?php echo $category['href']; ?>" class="see-all"><?php echo $text_all; ?> <?php echo $category['name']; ?></a> </div>
-											</li>
-											<?php } else { ?>
-											<li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-											<?php } ?>
-											<?php } ?>
-										</ul>
+                    <ul class="col-md-12">
+                       <?php foreach ($categories as $category) { ?>
+						<?php if ($category['children']) { ?>
+						<li class="dropdown"><a href="<?php echo $category['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $category['name']; ?></a>
+							<div class="dropdown-menu">
+								<div class="dropdown-inner">
+									<?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
+									<ul class="list-unstyled">
+										<?php foreach ($children as $child) { ?>
+										<li><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
+										<?php } ?>
+									</ul>
+									<?php } ?>
+								</div>
+								<a href="<?php echo $category['href']; ?>" class="see-all"><?php echo $text_all; ?> <?php echo $category['name']; ?></a> </div>
+						</li>
+						<?php } else { ?>
+						<li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+						<?php } ?>
+						<?php } ?>
+                    </ul>
                 </div>
             </div>
         </div>
     </header>
+    <div class="sticky-bucket">
+        <a href="<?php echo $sticky_cart; ?>">
+            <i class="material-icons">local_grocery_store</i> <span id="cart-total"><?php echo $text_items; ?></span>
+        </a>
+    </div>

@@ -147,6 +147,28 @@ $(document).ready(function() {
             return $(this).next().slideToggle();
         }
     });
+
+    if($('.footer .menu+.services').innerHeight() >= $('footer .footer-info').innerHeight()) {
+        $('footer .footer-info').innerHeight($('.footer .menu+.services').innerHeight());
+    } else {
+        $('.footer .menu+.services').innerHeight($('footer .footer-info').innerHeight())
+    }
+
+    $('.popular-item .name span').dotdotdot({
+        height : 48,
+        ellipsis : "\u2026",
+        truncate : "word",
+        watch: "word",
+    });
+
+    $(window).on("scroll", function() {
+        console.log($(window).scrollTop());
+            if ($(window).scrollTop() > 100) {
+                $('.sticky-bucket').css({right:0});
+            } else {
+                $('.sticky-bucket').css({right:-90});
+            }
+    });
 	
 	
 	

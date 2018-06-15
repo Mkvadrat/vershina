@@ -4,53 +4,67 @@
                 <div class="row">
                     <div class="col-md-2 menu">
                         <ul>
-                            <li><a href="#">О компании</a></li>
-                            <li><a href="#">Дилерам</a></li>
-                            <li><a href="#">Доставка и оплата</a></li>
-                            <li><a href="#">Гарантии</a></li>
-                            <li><a href="#">Аренда</a></li>
-                            <li><a href="#">Контакты</a></li>
+                            <?php foreach ($categories as $category) { ?>
+                            <?php if ($category['children']) { ?>
+                            <li class="dropdown"><a href="<?php echo $category['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $category['name']; ?></a>
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-inner">
+                                        <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
+                                        <ul class="list-unstyled">
+                                            <?php foreach ($children as $child) { ?>
+                                            <li><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
+                                            <?php } ?>
+                                        </ul>
+                                        <?php } ?>
+                                    </div>
+                                    <a href="<?php echo $category['href']; ?>" class="see-all"><?php echo $text_all; ?> <?php echo $category['name']; ?></a> </div>
+                            </li>
+                            <?php } else { ?>
+                            <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+                            <?php } ?>
+                            <?php } ?>
                         </ul>
                     </div>
+                    
+                    <?php if(!empty($footer_categories)){ ?>
+                    <?php $sectionsCols = array_chunk($footer_categories, ceil(count($footer_categories) / 3)); ?> 
+                    <?php } ?> 
                     <div class="col-md-2 services">
-                        <ul>
-                            <li><a href="#">Строительные леса Строительные леса</a></li>
-                            <li><a href="#">Виброоборудование</a></li>
-                            <li><a href="#">Лестницы</a></li>
-                            <li><a href="#">Стремянки</a></li>
-                            <li><a href="#">Тачки</a></li>
-                            <li><a href="#">Электроинструмент</a></li>
-                        </ul>
+                        <?php if(!empty($sectionsCols[0])){?>		
+                            <ul>
+                            <?php foreach($sectionsCols[0] as $footer_category){ ?>
+                                <li><a href="<?php echo $footer_category['href']; ?>"><?php echo $footer_category['name']; ?></a></li>
+                            <?php } ?> 
+                            </ul>
+                        <?php } ?>
                     </div>
                     <div class="col-md-2 services">
-                        <ul>
-                            <li><a href="#">Строительные леса</a></li>
-                            <li><a href="#">Виброоборудование</a></li>
-                            <li><a href="#">Лестницы</a></li>
-                            <li><a href="#">Стремянки</a></li>
-                            <li><a href="#">Тачки</a></li>
-                            <li><a href="#">Электроинструмент</a></li>
-                        </ul>
+                        <?php if(!empty($sectionsCols[1])){?>		
+                            <ul>
+                            <?php foreach($sectionsCols[1] as $footer_category){ ?>
+                                <li><a href="<?php echo $footer_category['href']; ?>"><?php echo $footer_category['name']; ?></a></li>
+                            <?php } ?> 
+                            </ul>
+                        <?php } ?>
                     </div>
                     <div class="col-md-3 services">
-                        <ul>
-                            <li><a href="#">Строительные леса</a></li>
-                            <li><a href="#">Виброоборудование</a></li>
-                            <li><a href="#">Лестницы</a></li>
-                            <li><a href="#">Стремянки</a></li>
-                            <li><a href="#">Тачки</a></li>
-                            <li><a href="#">Электроинструмент</a></li>
-                        </ul>
+                        <?php if(!empty($sectionsCols[2])){?>		
+                            <ul>
+                            <?php foreach($sectionsCols[2] as $footer_category){ ?>
+                                <li><a href="<?php echo $footer_category['href']; ?>"><?php echo $footer_category['name']; ?></a></li>
+                            <?php } ?> 
+                            </ul>
+                        <?php } ?>
                     </div>
                     <div class="col-md-3 footer-info">
                         <div>
                             <div class="tels">
-                                <a href="tel:+79782140140">+7 (978) 2-140-140</a>
-                                <a href="tel:+79780237070">+7 (978) 023-70-70</a>
+                                <a href="tel:<?php echo $telephone; ?>"><?php echo $telephone; ?></a>
+                                <a href="tel:<?php echo $fax; ?>"><?php echo $fax; ?></a>
                             </div>
-                            <p>Режим работы: с 9.00 до 18.00<br>выходной - ВС</p>
-                            <a href="mailto:info@vershina92.ru">info@vershina92.ru</a>
-                            <p>г. Севастополь</p>
+                            <p><?php echo $open; ?></p>
+                            <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a>
+                            <p><?php echo $address; ?></p>
                         </div>
                     </div>
                 </div>
@@ -60,18 +74,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
-                        <p>Все права защищены и охраняются законом. © 2008-2018 ООО «Вершина»</p>
-                        <p>Продажа строительных конструкций и другого оборудования в нашей компании. Принимаем к оплате <i class="material-icons">credit_card</i></p>
-                        <p>Информация на сайте www.vershina92.ru не является публичной офертой.</p>
+                        <?php echo $info_c; ?>
                     </div>
                     <div class="col-md-5">
-                            <div class="socials">
-                                <a href="#" class="vk"><img src="catalog/view/theme/vershina/image/soc-vk.png" alt=""></a>
-                                <a href="#" class="fb"><img src="catalog/view/theme/vershina/image/soc-facebook.png" alt=""></a>
-                                <a href="#" class="insta"><img src="catalog/view/theme/vershina/image/soc-insta.png" alt=""></a>
-                                <a href="#" class="yutb"><img src="catalog/view/theme/vershina/image/soc-youtube.png" alt=""></a>
-                            </div>
-                            <span class="made-with">Сделано в <a href="#"><img src="catalog/view/theme/vershina/image/m2.png" alt=""></a></span>
+                        <div class="socials">
+                            <?php echo $soc_links; ?>
+                        </div>
+                        <span class="made-with">Сделано в <a href="#"><img src="catalog/view/theme/vershina/image/m2.png" alt=""></a></span>
                     </div>
                 </div>
             </div>
