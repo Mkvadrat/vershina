@@ -256,6 +256,9 @@ class ControllerCatalogCategory extends Controller {
 		$data['entry_filter'] = $this->language->get('entry_filter');
 		$data['entry_store'] = $this->language->get('entry_store');
 		$data['entry_image'] = $this->language->get('entry_image');
+		$data['entry_yomenu_image'] = $this->language->get('entry_yomenu_image');
+        $data['entry_yomenu_icon'] = $this->language->get('entry_yomenu_icon');
+        $data['entry_yomenu_content'] = $this->language->get('entry_yomenu_content');
 		$data['entry_top'] = $this->language->get('entry_top');
 		$data['entry_column'] = $this->language->get('entry_column');
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
@@ -278,6 +281,7 @@ class ControllerCatalogCategory extends Controller {
 		$data['tab_data'] = $this->language->get('tab_data');
 		$data['tab_related'] = $this->language->get('tab_related');
 		$data['tab_design'] = $this->language->get('tab_design');
+		$data['tab_yomenu'] = $this->language->get('tab_yomenu');
 
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
@@ -438,8 +442,47 @@ class ControllerCatalogCategory extends Controller {
 		} else {
 			$data['image'] = '';
 		}
+		
+		if (isset($this->request->post['yomenu_image'])) {
+            $data['yomenu_image'] = $this->request->post['yomenu_image'];
+        } elseif (!empty($category_info)) {
+            $data['yomenu_image'] = $category_info['yomenu_image'];
+        } else {
+            $data['yomenu_image'] = '';
+        }
+
+        if (isset($this->request->post['yomenu_icon'])) {
+            $data['yomenu_icon'] = $this->request->post['yomenu_icon'];
+        } elseif (!empty($category_info)) {
+            $data['yomenu_icon'] = $category_info['yomenu_icon'];
+        } else {
+            $data['yomenu_icon'] = '';
+        }
+        if (isset($this->request->post['yomenu_content'])) {
+            $data['yomenu_content'] = $this->request->post['yomenu_content'];
+        } elseif (!empty($category_info)) {
+            $data['yomenu_content'] = $category_info['yomenu_content'];
+        } else {
+            $data['yomenu_content'] = '';
+        }
 
 		$this->load->model('tool/image');
+		
+		if (isset($this->request->post['yomenu_image']) && is_file(DIR_IMAGE . $this->request->post['yomenu_image'])) {
+            $data['yo_image_thumb'] = $this->model_tool_image->resize($this->request->post['yomenu_image'], 100, 100);
+        } elseif (!empty($category_info) && is_file(DIR_IMAGE . $category_info['yomenu_image'])) {
+            $data['yo_image_thumb'] = $this->model_tool_image->resize($category_info['yomenu_image'], 100, 100);
+        } else {
+            $data['yo_image_thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+        }
+
+        if (isset($this->request->post['yomenu_icon']) && is_file(DIR_IMAGE . $this->request->post['yomenu_icon'])) {
+            $data['yo_icon_thumb'] = $this->model_tool_image->resize($this->request->post['yomenu_icon'], 100, 100);
+        } elseif (!empty($category_info) && is_file(DIR_IMAGE . $category_info['yomenu_icon'])) {
+            $data['yo_icon_thumb'] = $this->model_tool_image->resize($category_info['yomenu_icon'], 100, 100);
+        } else {
+            $data['yo_icon_thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+        }
 
 		if (isset($this->request->post['image']) && is_file(DIR_IMAGE . $this->request->post['image'])) {
 			$data['thumb'] = $this->model_tool_image->resize($this->request->post['image'], 100, 100);

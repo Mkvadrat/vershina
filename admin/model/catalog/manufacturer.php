@@ -15,6 +15,18 @@ class ModelCatalogManufacturer extends Model {
 				$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer_to_layout SET manufacturer_id = '" . (int)$manufacturer_id . "', store_id = '" . (int)$store_id . "', layout_id = '" . (int)$layout_id . "'");
 			}
 		}
+		
+		if (isset($data['yomenu_icon'])) {
+            $this->db->query("UPDATE " . DB_PREFIX . "manufacturer SET yomenu_icon = '" . $this->db->escape($data['yomenu_icon']) . "' WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
+        }
+
+        if (isset($data['yomenu_image'])) {
+            $this->db->query("UPDATE " . DB_PREFIX . "manufacturer SET yomenu_image = '" . $this->db->escape($data['yomenu_image']) . "' WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
+        }
+
+        if (isset($data['yomenu_content'])) {
+            $this->db->query("UPDATE " . DB_PREFIX . "manufacturer SET yomenu_content = '" . $this->db->escape($data['yomenu_content']) . "' WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
+        }
 
 		if (isset($data['image'])) {
 			$this->db->query("UPDATE " . DB_PREFIX . "manufacturer SET image = '" . $this->db->escape($data['image']) . "' WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
@@ -65,6 +77,18 @@ class ModelCatalogManufacturer extends Model {
 		}
 		
 		$this->db->query("UPDATE " . DB_PREFIX . "manufacturer SET name = '" . $this->db->escape($data['name']) . "', sort_order = '" . (int)$data['sort_order'] . "', noindex = '" . (int)$data['noindex'] . "' WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
+
+		        if (isset($data['yomenu_icon'])) {
+            $this->db->query("UPDATE " . DB_PREFIX . "manufacturer SET yomenu_icon = '" . $this->db->escape($data['yomenu_icon']) . "' WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
+        }
+
+        if (isset($data['yomenu_image'])) {
+            $this->db->query("UPDATE " . DB_PREFIX . "manufacturer SET yomenu_image = '" . $this->db->escape($data['yomenu_image']) . "' WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
+        }
+
+        if (isset($data['yomenu_content'])) {
+            $this->db->query("UPDATE " . DB_PREFIX . "manufacturer SET yomenu_content = '" . $this->db->escape($data['yomenu_content']) . "' WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
+        }
 
 		if (isset($data['image'])) {
 			$this->db->query("UPDATE " . DB_PREFIX . "manufacturer SET image = '" . $this->db->escape($data['image']) . "' WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");

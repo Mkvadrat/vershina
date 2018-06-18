@@ -85,7 +85,18 @@
                 </div>
             </div>
         </div>
-
+        <div id="call-to-me">
+            <h3>Наши менеджеры свяжутся с Вами в течении 1 часа</h3>
+            <div>
+                <form action="">
+                    <label for="name">Имя: <input id="name" type="text" placeholder="Введите Ваше имя"></label>
+                    <label for="phone">Телефон*: <input id="phone" type="text" placeholder="+ 7 (___) - ___ - __ - __"></label>
+                    <label for="question">Вопрос: <textarea name="" id="question" cols="30" rows="5" placeholder="Ваш вопрос"></textarea></label>
+                    <label><input type="checkbox"> я согласен (согласна) с <a href="#">политикой конфиденциальности</a></label>
+                </form>
+            </div>
+            <button type="submit">Отправить</button>
+        </div>
     </footer>
 </body>
 </html>

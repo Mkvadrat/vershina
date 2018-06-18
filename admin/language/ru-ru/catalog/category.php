@@ -35,6 +35,9 @@ $_['entry_filter']           = 'Фильтры';
 $_['entry_store']            = 'Магазины';
 $_['entry_image']            = 'Изображение';
 $_['entry_top']              = 'Главное меню';
+$_['entry_yomenu_image']     = 'Изображение:';
+$_['entry_yomenu_icon']      = 'Иконка:';
+$_['entry_yomenu_content']   = 'Произвольный контент:';
 $_['entry_column']           = 'Столбцы';
 $_['entry_sort_order']       = 'Порядок сортировки';
 $_['entry_status']           = 'Статус';
@@ -42,6 +45,9 @@ $_['entry_noindex']          = 'Индексация';
 $_['entry_layout']           = 'Изменить макет';
 $_['entry_related_wb']       = 'Рекомендуемые товары:';
 $_['entry_related_article']  = 'Рекомендуемые статьи:';
+
+// Tab
+$_['tab_yomenu']            = 'YO MENU';
 
 // Help
 $_['help_filter']            = '(Автозаполнение)';

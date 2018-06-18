@@ -9,7 +9,19 @@ class ModelCatalogCategory extends Model {
 		$this->db->query("INSERT INTO " . DB_PREFIX . "category SET parent_id = '" . (int)$data['parent_id'] . "', `top` = '" . (isset($data['top']) ? (int)$data['top'] : 0) . "', `column` = '" . (int)$data['column'] . "', sort_order = '" . (int)$data['sort_order'] . "', status = '" . (int)$data['status'] . "', noindex = '" . (int)$data['noindex'] . "', date_modified = NOW(), date_added = NOW()");
 
 		$category_id = $this->db->getLastId();
+		
+		if (isset($data['yomenu_image'])) {
+            $this->db->query("UPDATE " . DB_PREFIX . "category SET yomenu_image = '" . $this->db->escape($data['yomenu_image']) . "' WHERE category_id = '" . (int)$category_id . "'");
+        }
 
+        if (isset($data['yomenu_icon'])) {
+            $this->db->query("UPDATE " . DB_PREFIX . "category SET yomenu_icon = '" . $this->db->escape($data['yomenu_icon']) . "' WHERE category_id = '" . (int)$category_id . "'");
+        }
+
+        if (isset($data['yomenu_content'])) {
+            $this->db->query("UPDATE " . DB_PREFIX . "category SET yomenu_content = '" . $this->db->escape($data['yomenu_content']) . "' WHERE category_id = '" . (int)$category_id . "'");
+        }
+		
 		if (isset($data['image'])) {
 			$this->db->query("UPDATE " . DB_PREFIX . "category SET image = '" . $this->db->escape($data['image']) . "' WHERE category_id = '" . (int)$category_id . "'");
 		}
@@ -76,6 +88,18 @@ class ModelCatalogCategory extends Model {
 
 	public function editCategory($category_id, $data) {
 		$this->db->query("UPDATE " . DB_PREFIX . "category SET parent_id = '" . (int)$data['parent_id'] . "', `top` = '" . (isset($data['top']) ? (int)$data['top'] : 0) . "', `column` = '" . (int)$data['column'] . "', sort_order = '" . (int)$data['sort_order'] . "', status = '" . (int)$data['status'] . "', noindex = '" . (int)$data['noindex'] . "', date_modified = NOW() WHERE category_id = '" . (int)$category_id . "'");
+		
+		if (isset($data['yomenu_image'])) {
+            $this->db->query("UPDATE " . DB_PREFIX . "category SET yomenu_image = '" . $this->db->escape($data['yomenu_image']) . "' WHERE category_id = '" . (int)$category_id . "'");
+        }
+
+        if (isset($data['yomenu_icon'])) {
+            $this->db->query("UPDATE " . DB_PREFIX . "category SET yomenu_icon = '" . $this->db->escape($data['yomenu_icon']) . "' WHERE category_id = '" . (int)$category_id . "'");
+        }
+
+        if (isset($data['yomenu_content'])) {
+            $this->db->query("UPDATE " . DB_PREFIX . "category SET yomenu_content = '" . $this->db->escape($data['yomenu_content']) . "' WHERE category_id = '" . (int)$category_id . "'");
+        }
 		
 		if (isset($data['image'])) {
 			$this->db->query("UPDATE " . DB_PREFIX . "category SET image = '" . $this->db->escape($data['image']) . "' WHERE category_id = '" . (int)$category_id . "'");

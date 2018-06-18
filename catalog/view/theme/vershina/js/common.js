@@ -134,20 +134,7 @@ $(document).ready(function() {
 		$('[data-toggle=\'tooltip\']').tooltip({container: 'body'});
 	});
 	
-	//Menu
-	$('.catalog-list span').not(':first').on('click', function() {
-        if($(this).is('.active-rubric')) {
-            $('.catalog-list span').removeClass('active-rubric');
-            return $('.catalog-list ul').slideUp();
-        }
-        $('.catalog-list span').removeClass('active-rubric');
-        if($(this).next('ul')) {
-            $(this).toggleClass('active-rubric');
-            $('.catalog-list ul').slideUp();
-            return $(this).next().slideToggle();
-        }
-    });
-
+	//Настройки темы
     if($('.footer .menu+.services').innerHeight() >= $('footer .footer-info').innerHeight()) {
         $('footer .footer-info').innerHeight($('.footer .menu+.services').innerHeight());
     } else {
@@ -162,15 +149,17 @@ $(document).ready(function() {
     });
 
     $(window).on("scroll", function() {
-        console.log($(window).scrollTop());
-            if ($(window).scrollTop() > 100) {
-                $('.sticky-bucket').css({right:0});
-            } else {
-                $('.sticky-bucket').css({right:-90});
-            }
+        if ($(window).scrollTop() > 100) {
+            $('.sticky-bucket').css({right:0});
+            $('.sticky-contact-us').css({left:20});
+        } else {
+            $('.sticky-bucket').css({right:-90});
+            $('.sticky-contact-us').css({left:-81});
+        }
     });
 	
-	
+	$('.sticky-contact-us a').fancybox();
+    $('.collback a.w-button').fancybox();
 	
 	
 });

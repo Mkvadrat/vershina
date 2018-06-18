@@ -140,20 +140,20 @@
                   <input type="hidden" name="image" value="<?php echo $image; ?>" id="input-image" />
                 </div>
               </div>
-			   <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-noindex"><span data-toggle="tooltip" title="<?php echo $help_noindex; ?>"><?php echo $entry_noindex; ?></span></label>
-                <div class="col-sm-10">
-                  <select name="noindex" id="input-noindex" class="form-control">
-                    <?php if ($noindex) { ?>
-                    <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
-                    <option value="0"><?php echo $text_disabled; ?></option>
-                    <?php } else { ?>
-                    <option value="1"><?php echo $text_enabled; ?></option>
-                    <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
-                    <?php } ?>
-                  </select>
-                </div>
-				</div>
+							<div class="form-group">
+										 <label class="col-sm-2 control-label" for="input-noindex"><span data-toggle="tooltip" title="<?php echo $help_noindex; ?>"><?php echo $entry_noindex; ?></span></label>
+										 <div class="col-sm-10">
+											 <select name="noindex" id="input-noindex" class="form-control">
+												 <?php if ($noindex) { ?>
+												 <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+												 <option value="0"><?php echo $text_disabled; ?></option>
+												 <?php } else { ?>
+												 <option value="1"><?php echo $text_enabled; ?></option>
+												 <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+												 <?php } ?>
+											 </select>
+										 </div>
+							</div>
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-sort-order"><?php echo $entry_sort_order; ?></label>
                 <div class="col-sm-10">
@@ -301,4 +301,12 @@ $('#article-related').delegate('.fa-minus-circle', 'click', function() {
 });
 //--></script>
 </div>
+<script type="text/javascript" src="view/javascript/summernote/summernote.js"></script>
+<link href="view/javascript/summernote/summernote.css" rel="stylesheet" />
+<script type="text/javascript" src="view/javascript/summernote/opencart.js"></script> 
+<script type="text/javascript"><!--
+		$('#yomenu-content').summernote({
+				height: 200
+		});
+//--></script>
 <?php echo $footer; ?>
