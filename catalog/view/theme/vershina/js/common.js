@@ -161,6 +161,8 @@ $(document).ready(function() {
 	$('.sticky-contact-us a').fancybox();
     $('.collback a.w-button').fancybox();
 	
+	$('#phone').inputmask("+7(999) 999-9999");  //static mask
+	
 	
 });
 
@@ -190,7 +192,7 @@ var cart = {
 
 					// Need to set timeout otherwise it wont update the total
 					setTimeout(function () {
-						$('.items').html(json['total']);
+						$('.items-cart').html(json['total']);
 					}, 100);
 
 					$('html, body').animate({ scrollTop: 0 }, 'slow');

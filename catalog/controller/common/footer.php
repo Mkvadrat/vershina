@@ -40,6 +40,8 @@ class ControllerCommonFooter extends Controller {
 		$data['text_newsletter'] = $this->language->get('text_newsletter');
 
 		$this->load->model('catalog/information');
+		
+		$data['action'] = $this->url->link('common/footer/sendmail', '', true);
 
 		$data['informations'] = array();
 
@@ -50,6 +52,24 @@ class ControllerCommonFooter extends Controller {
 					'href'  => $this->url->link('information/information', 'information_id=' . $result['information_id'])
 				);
 			}
+		}
+		
+		if (isset($this->request->post['name'])) {
+			$data['name'] = $this->request->post['name'];
+		} else {
+			$data['name'] = $this->customer->getFirstName();
+		}
+
+		if (isset($this->request->post['phone'])) {
+			$data['phone'] = $this->request->post['phone'];
+		} else {
+			$data['phone'] = $this->customer->getTelephone();
+		}
+
+		if (isset($this->request->post['enquiry'])) {
+			$data['enquiry'] = $this->request->post['enquiry'];
+		} else {
+			$data['enquiry'] = '';
 		}
 
 		$data['contact'] = $this->url->link('information/contact');
@@ -244,5 +264,28 @@ class ControllerCommonFooter extends Controller {
         }
         return $link;
     }
+	}
+	
+	public function sendMail(){
+		if (($this->request->server['REQUEST_METHOD'] == 'POST')) {
+			$mail = new Mail();
+			$mail->protocol = $this->config->get('config_mail_protocol');
+			$mail->parameter = $this->config->get('config_mail_parameter');
+			$mail->smtp_hostname = $this->config->get('config_mail_smtp_hostname');
+			$mail->smtp_username = $this->config->get('config_mail_smtp_username');
+			$mail->smtp_password = html_entity_decode($this->config->get('config_mail_smtp_password'), ENT_QUOTES, 'UTF-8');
+			$mail->smtp_port = $this->config->get('config_mail_smtp_port');
+			$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
+
+			$mail->setTo($this->config->get('config_email'));
+			$mail->setFrom($this->request->post['phone']);
+			$mail->setSender(html_entity_decode($this->request->post['name'], ENT_QUOTES, 'UTF-8'));
+			$mail->setSubject(html_entity_decode(sprintf($this->language->get('email_subject'), $this->request->post['name']), ENT_QUOTES, 'UTF-8'));
+						
+			$mail->setHtml('Имя: ' . $this->request->post['name'] . '<br>Телефон: ' . $this->request->post['phone'] . '<br>Сообщение: ' . $this->request->post['enquiry']);
+			$mail->send();
+
+			$this->response->redirect($this->url->link('information/contact/success'));
+		}
 	}
 }

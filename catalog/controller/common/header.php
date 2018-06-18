@@ -42,6 +42,8 @@ class ControllerCommonHeader extends Controller {
 		$data['direction'] = $this->language->get('direction');
 
 		$data['name'] = $this->config->get('config_name');
+		
+		$data['customer'] = $this->customer->getFirstName() . ' ' . $this->customer->getLastName();
 
 		if (is_file(DIR_IMAGE . $this->config->get('config_logo'))) {
 			$data['logo'] = $server . 'image/' . $this->config->get('config_logo');
@@ -214,6 +216,7 @@ class ControllerCommonHeader extends Controller {
 		$data['text_logout'] = $this->language->get('text_logout');
 		$data['text_checkout'] = $this->language->get('text_checkout');
 		$data['text_category'] = $this->language->get('text_category');
+		$data['text_greeting'] = $this->language->get('text_greeting');
 		$data['text_all'] = $this->language->get('text_all');
 
 		$data['home'] = $this->url->link('common/home');

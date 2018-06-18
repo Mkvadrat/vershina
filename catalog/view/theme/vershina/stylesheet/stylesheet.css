@@ -648,12 +648,12 @@ footer .row>div.footer-info {
     padding: 10px 0 0 10px;
 }
 #call-to-me label input[type=checkbox] {
-    visibility: hidden;
+    visibility: visible;
 }
 #call-to-me label:last-child {
     position: relative;
 }
-#call-to-me label:last-child::before {
+/*#call-to-me label:last-child::before {
     content: ' ';
     background: #fff;
     display: block;
@@ -663,7 +663,7 @@ footer .row>div.footer-info {
     position: absolute;
     left: 0;
     top: 6px;
-}
+}*/
 #call-to-me label input[type=checkbox]:checked::before {
     content: ' ';
     display: block;

@@ -90,14 +90,15 @@
         <div id="call-to-me">
             <h3>Наши менеджеры свяжутся с Вами в течении 1 часа</h3>
             <div>
-                <form action="">
-                    <label for="name">Имя: <input id="name" type="text" placeholder="Введите Ваше имя"></label>
-                    <label for="phone">Телефон*: <input id="phone" type="text" placeholder="+ 7 (___) - ___ - __ - __"></label>
-                    <label for="question">Вопрос: <textarea name="" id="question" cols="30" rows="5" placeholder="Ваш вопрос"></textarea></label>
+                <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <label for="name">Имя: <input name="name" value="<?php echo $name; ?>" type="text" placeholder="Введите Ваше имя"></label>
+                    <label for="phone">Телефон*: <input name="phone" value="<?php echo $phone; ?>" id="phone" type="text" placeholder="+ 7 (___) - ___ - __ - __"></label>
+                    <label for="question">Вопрос: <textarea name="enquiry" id="input-enquiry" id="question" cols="30" rows="5" placeholder="Ваш вопрос"></textarea></label>
                     <label><input type="checkbox"> я согласен (согласна) с <a href="#">политикой конфиденциальности</a></label>
+                    <button type="submit">Отправить</button>
                 </form>
             </div>
-            <button type="submit">Отправить</button>
+            
         </div>
     </footer>
 </body>

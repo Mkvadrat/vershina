@@ -24,6 +24,7 @@
 <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
 <script src="catalog/view/theme/vershina/js/common.js" type="text/javascript"></script>
+<script src="catalog/view/theme/vershina/js/jquery.inputmask.bundle.min.js" type="text/javascript"></script>
 
 <!-- STYLES -->
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
@@ -54,13 +55,20 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <p>Приветствуем <span>Имя Фамилия</span></p>
+							<?php if ($logged) { ?>
+                            <p><?php echo $text_greeting; ?> <span><?php echo $customer; ?></span></p>
                             <div class="autorise">
-                                <a href="#">Мой аккаунт</a>
-                                <a href="#">История заказов</a>
-                                <a href="#">Транзакции</a>
-                                <a href="#">Выход</a>
+                                <a href="<?php echo $account; ?>"><?php echo $text_account; ?></a>
+                                <a href="<?php echo $order; ?>"><?php echo $text_order; ?></a>
+                                <a href="<?php echo $transaction; ?>"><?php echo $text_transaction; ?></a>
+                                <a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a>
                             </div>
+							<?php } else { ?>
+							<div class="autorise">
+								<a href="<?php echo $register; ?>"><?php echo $text_register; ?></a>
+								<a href="<?php echo $login; ?>"><?php echo $text_login; ?></a>
+							</div>
+							<?php } ?>
                         </div>
                     </div>
                 </div>
@@ -126,7 +134,7 @@
     </header>
     <div class="sticky-bucket">
         <a href="<?php echo $sticky_cart; ?>">
-            <i class="material-icons">local_grocery_store</i> <span id="cart-total"><?php echo $text_items; ?></span>
+            <i class="material-icons">local_grocery_store</i> <span class="items-cart" id="cart-total"><?php echo $text_items; ?></span>
         </a>
     </div>
 	<div class="sticky-contact-us">
