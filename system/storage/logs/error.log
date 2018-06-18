@@ -72,3 +72,4 @@
 2018-06-15 15:53:15 - PHP Notice:  Undefined variable: config_information_c in D:\OpenServer\domains\vershina92.loc\admin\view\template\setting\setting.tpl on line 181
 2018-06-15 15:53:46 - PHP Notice:  Undefined variable: config_information_c in D:\OpenServer\domains\vershina92.loc\admin\view\template\setting\setting.tpl on line 181
 2018-06-15 15:53:57 - PHP Notice:  Undefined variable: config_information_c in D:\OpenServer\domains\vershina92.loc\admin\view\template\setting\setting.tpl on line 181
+2018-06-15 16:26:04 - PHP Notice:  Undefined variable: heading_title in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\common\search.tpl on line 2
