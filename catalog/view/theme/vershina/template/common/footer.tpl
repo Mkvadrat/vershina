@@ -1,3 +1,5 @@
+        </div>
+    </div>
     <footer>
         <div class="container-fluid footer">
             <div class="container">

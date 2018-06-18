@@ -1,39 +1,35 @@
-<div class="container">
-    <div class="row">
-        <section class="col-md-9">
-            <h1 class="title"><?php echo $heading_title; ?></h1>
-            <div class="popular-list">
-              <?php foreach ($products as $product) { ?>
-                <div class="popular-item">
-                    <a class="img" href="<?php echo $product['href']; ?>">
-                        <img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" />
-                    </a>
-                    <a class="name" href="<?php echo $product['href']; ?>">
-                        <span>
-                            <?php echo $product['description']; ?>
-                        </span>
-                    </a>
-                    
-                    <?php if ($product['price']) { ?>
-                    <span class="price">
-                      <?php if (!$product['special']) { ?>
-                      Цена:
-                      <?php echo $product['price']; ?>
-                      <?php } else { ?>
-                      Цена:
-                      <span><?php echo $product['special']; ?></span> <span><?php echo $product['price']; ?></span>
-                      <?php } ?>
-                      <?php if ($product['tax']) { ?>
-                      <span><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
-                      <?php } ?>
-                    </span>
-                    <?php } ?>
+<section class="col-md-9">
+    <h1 class="title"><?php echo $heading_title; ?></h1>
+    <div class="popular-list">
+        <?php foreach ($products as $product) { ?>
+        <div class="popular-item">
+            <a class="img" href="<?php echo $product['href']; ?>">
+                <img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" />
+            </a>
+            <a class="name" href="<?php echo $product['href']; ?>">
+                <span>
+                    <?php echo $product['description']; ?>
+                </span>
+            </a>
+            
+            <?php if ($product['price']) { ?>
+            <span class="price">
+                <?php if (!$product['special']) { ?>
+                Цена:
+                <?php echo $product['price']; ?>
+                <?php } else { ?>
+                Цена:
+                <span><?php echo $product['special']; ?></span> <span><?php echo $product['price']; ?></span>
+                <?php } ?>
+                <?php if ($product['tax']) { ?>
+                <span><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
+                <?php } ?>
+            </span>
+            <?php } ?>
 
-                    <a class="more w-button" href="<?php echo $product['href']; ?>">Подробнее</a>
-                    <a class="add-to-bucket" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="material-icons">add_shopping_cart</i></a>
-                </div>
-              <?php } ?>
-            </div>
-        </section>
+            <a class="more w-button" href="<?php echo $product['href']; ?>">Подробнее</a>
+            <a class="add-to-bucket" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="material-icons">add_shopping_cart</i></a>
+        </div>
+        <?php } ?>
     </div>
-</div>
+</section>

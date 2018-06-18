@@ -101,8 +101,7 @@ header .w-button {
 .header-top {
     background: #fff;
     width: 100%;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 0 0 10px;
 }
 .header-top .row>div {
     height: 93px;
@@ -617,12 +616,14 @@ footer .row>div.footer-info {
     line-height: 18px;
     padding: 0 40px;
     margin: 20px 0;
+    font-weight: bold;
 }
 #call-to-me label {
     display: inline-block;
     width: 100%;
     margin: 20px 0 5px;
     line-height: 40px;
+    font-weight: normal;
 }
 #call-to-me label+label {
     margin: 5px 0;
@@ -661,7 +662,7 @@ footer .row>div.footer-info {
     border: 1px solid #e2e2e2;
     position: absolute;
     left: 0;
-    top: 4px;
+    top: 6px;
 }
 #call-to-me label input[type=checkbox]:checked::before {
     content: ' ';
@@ -670,7 +671,7 @@ footer .row>div.footer-info {
     border: 1px solid #000;
     position: absolute;
     left: 3px;
-    top: 10px;
+    top: 12px;
     transform: rotate(45deg);
     visibility: visible;
 }
@@ -681,7 +682,7 @@ footer .row>div.footer-info {
     border: 1px solid #000;
     position: absolute;
     left: 5px;
-    top: 9px;
+    top: 11px;
     transform: rotate(-45deg);
     visibility: visible;
 }
@@ -719,4 +720,42 @@ footer .row>div.footer-info {
 }
 .fancybox-is-open .fancybox-bg {
     opacity: 0;
+}
+.registrate {
+    height: 24px;
+    background: #000;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.registrate p,
+.registrate span {
+    color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+.registrate span {
+    font-weight: bold;
+    margin-left: 20px;
+}
+.registrate p {
+    position: absolute;
+}
+.header-top .registrate .row>div {
+    height: auto;
+    position: relative;
+}
+.header-top .registrate .autorise {
+    margin: 0 0 0 auto;
+}
+.header-top .registrate .autorise a {
+    color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+    margin-right: 22px;
+}
+.header-top .registrate .autorise a:last-child {
+    margin-right: 6px;
 }

@@ -1,6 +1,3 @@
-<div class="container">
-  <div class="row">
-    <aside class="col-md-3">
       <div id="yo-<?php echo $module; ?>" class="<?php echo $box_class; ?>">
         <?php if ($title) { ?>
         <div class="<?php echo $title_class ? $title_class : ''; ?> <?php echo $minimized ? 'menu-collapsed' : 'menu-expanded'; ?> toggle-title"><?php echo $title; ?></div>
@@ -157,8 +154,6 @@
         </div>
       </div>
     </aside>
-  </div>
-</div>
 
 <script type="text/javascript"><!--
 $('#yo-<?php echo $module; ?> .btn-toggle, #yo-<?php echo $module; ?> .item-toggle').on('click', function(e) {

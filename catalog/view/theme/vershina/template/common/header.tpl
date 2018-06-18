@@ -28,9 +28,9 @@
 <!-- STYLES -->
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
 <link rel="stylesheet" href="catalog/view/theme/vershina/stylesheet/stylesheet.css">
 <link rel="stylesheet" href="catalog/view/theme/vershina/stylesheet/media.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
  
 <!-- OTHER -->
 <?php foreach ($styles as $style) { ?>
@@ -50,6 +50,21 @@
 <body>
 	<header>
         <div class="container-fluid header-top">
+            <div class="container-fluid registrate">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Приветствуем <span>Имя Фамилия</span></p>
+                            <div class="autorise">
+                                <a href="#">Мой аккаунт</a>
+                                <a href="#">История заказов</a>
+                                <a href="#">Транзакции</a>
+                                <a href="#">Выход</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-2 logo">
@@ -119,3 +134,5 @@
             <img src="catalog/view/theme/vershina/image/contact_us.png">
         </a>
     </div>
+    <div class="container">
+        <div class="row">
