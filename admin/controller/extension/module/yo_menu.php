@@ -29,7 +29,7 @@ class ControllerExtensionModuleYoMenu extends Controller{
             }
         }
                 
-        $data['heading_title']=$this->language->get('module_title'.'For only: lowenet.biz');
+        $data['heading_title']=$this->language->get('heading_title');
         $data['default_store']=$this->config->get('config_name');
         $data['version']='v2.0';
         $data['text_author']=$this->language->get('text_author');

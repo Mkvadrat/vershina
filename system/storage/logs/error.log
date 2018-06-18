@@ -73,3 +73,7 @@
 2018-06-15 15:53:46 - PHP Notice:  Undefined variable: config_information_c in D:\OpenServer\domains\vershina92.loc\admin\view\template\setting\setting.tpl on line 181
 2018-06-15 15:53:57 - PHP Notice:  Undefined variable: config_information_c in D:\OpenServer\domains\vershina92.loc\admin\view\template\setting\setting.tpl on line 181
 2018-06-15 16:26:04 - PHP Notice:  Undefined variable: heading_title in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\common\search.tpl on line 2
+2018-06-18 15:20:07 - PHP Warning:  sprintf(): Too few arguments in D:\OpenServer\domains\vershina92.loc\catalog\controller\checkout\cart.php on line 403
+2018-06-18 15:20:28 - PHP Warning:  sprintf(): Too few arguments in D:\OpenServer\domains\vershina92.loc\catalog\controller\checkout\cart.php on line 403
+2018-06-18 15:21:09 - PHP Notice:  Undefined variable: text_items in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\common\cart.tpl on line 2
+2018-06-18 15:22:40 - PHP Warning:  sprintf(): Too few arguments in D:\OpenServer\domains\vershina92.loc\catalog\controller\checkout\cart.php on line 403
