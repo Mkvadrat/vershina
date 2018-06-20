@@ -32,7 +32,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
 <link rel="stylesheet" href="catalog/view/theme/vershina/stylesheet/stylesheet.css">
 <link rel="stylesheet" href="catalog/view/theme/vershina/stylesheet/media.css">
- 
+
+<!-- YANDEX MAPS -->
+<script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+
 <!-- OTHER -->
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />

@@ -268,6 +268,7 @@ class ControllerCommonFooter extends Controller {
 	
 	public function sendMail(){
 		if (($this->request->server['REQUEST_METHOD'] == 'POST')) {
+			$this->load->language('information/contact');
 			$mail = new Mail();
 			$mail->protocol = $this->config->get('config_mail_protocol');
 			$mail->parameter = $this->config->get('config_mail_parameter');

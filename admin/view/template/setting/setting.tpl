@@ -39,6 +39,7 @@
             <li><a href="#tab-ftp" data-toggle="tab"><?php echo $tab_ftp; ?></a></li>
             <li><a href="#tab-mail" data-toggle="tab"><?php echo $tab_mail; ?></a></li>
             <li><a href="#tab-server" data-toggle="tab"><?php echo $tab_server; ?></a></li>
+            <li><a href="#tab-contacts" data-toggle="tab">Контакты</a></li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="tab-general">
@@ -1452,6 +1453,17 @@
                     <?php if ($error_error_filename) { ?>
                     <div class="text-danger"><?php echo $error_error_filename; ?></div>
                     <?php } ?>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <div class="tab-pane" id="tab-contacts">
+              <fieldset>
+                <legend>Контакты</legend>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-contacts">Контактные данные</label>
+                  <div class="col-sm-10">
+                    <textarea name="config_contacts" placeholder="Контактные данные" rows="5" id="input-contacts" class="form-control summernote"><?php echo $config_contacts; ?></textarea>
                   </div>
                 </div>
               </fieldset>

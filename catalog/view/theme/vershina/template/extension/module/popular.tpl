@@ -19,7 +19,7 @@
                 <?php echo $product['price']; ?>
                 <?php } else { ?>
                 Цена:
-                <span><?php echo $product['special']; ?></span> <span><?php echo $product['price']; ?></span>
+                <span><?php echo $product['special']; ?></span> <strike><sup style="font-size: 50%;"><?php echo $product['price']; ?></sup></strike>
                 <?php } ?>
                 <?php if ($product['tax']) { ?>
                 <span><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
@@ -28,7 +28,7 @@
             <?php } ?>
 
             <a class="more w-button" href="<?php echo $product['href']; ?>">Подробнее</a>
-            <a class="add-to-bucket" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="material-icons">add_shopping_cart</i></a>
+            <a style="cursor: pointer;" class="add-to-bucket" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="material-icons">add_shopping_cart</i></a>
         </div>
         <?php } ?>
     </div>

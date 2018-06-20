@@ -83,3 +83,6 @@
 2018-06-18 16:39:27 - PHP Notice:  Undefined variable: name in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\common\footer.tpl on line 94
 2018-06-18 16:39:27 - PHP Notice:  Undefined variable: phone in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\common\footer.tpl on line 95
 2018-06-18 16:41:10 - PHP Notice:  Undefined index: email in D:\OpenServer\domains\vershina92.loc\catalog\controller\common\footer.php on line 281
+2018-06-20 11:21:44 - PHP Notice:  Undefined index: separator in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\information\information.tpl on line 18
+2018-06-20 12:10:02 - PHP Notice:  Undefined index: separator in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\information\information.tpl on line 17
+2018-06-20 12:10:02 - PHP Notice:  Undefined index: separator in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\information\information.tpl on line 22

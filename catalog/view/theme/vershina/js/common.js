@@ -147,6 +147,12 @@ $(document).ready(function() {
         truncate : "word",
         watch: "word",
     });
+    $('.same-products .name span').dotdotdot({
+        height : 48,
+        ellipsis : "\u2026",
+        truncate : "word",
+        watch: "word",
+    });
 
     $(window).on("scroll", function() {
         if ($(window).scrollTop() > 100) {
@@ -157,11 +163,32 @@ $(document).ready(function() {
             $('.sticky-contact-us').css({left:-81});
         }
     });
+
+    
+    $('.sticky-contact-us a').fancybox({
+        afterLoad: function() {
+            $('.fancybox-is-open .fancybox-bg').css( {
+                opacity: 0
+            });
+        }
+    });
+    $('.collback a.w-button').fancybox({
+        afterLoad: function() {
+            $('.fancybox-is-open .fancybox-bg').css( {
+                opacity: 0
+            });
+        }
+    });
+
+    $('.photo-gallery a').fancybox();
+    
+    $('.tabs button').on('click', function() {
+        $('.tabs button').toggleClass('active');
+        $('.product-refs').toggleClass('active');
+        $('.product-description').toggleClass('active');
+    });
 	
-	$('.sticky-contact-us a').fancybox();
-    $('.collback a.w-button').fancybox();
-	
-	$('#phone').inputmask("+7(999) 999-9999");  //static mask
+	$('.phone').inputmask("+7(999) 999-9999");  //static mask
 	
 	
 });

@@ -547,6 +547,12 @@ class ControllerSettingSetting extends Controller {
 		} else {
 			$data['config_soc_links'] = $this->config->get('config_soc_links');
 		}
+		
+		if (isset($this->request->post['config_contacts'])) {
+			$data['config_contacts'] = $this->request->post['config_contacts'];
+		} else {
+			$data['config_contacts'] = $this->config->get('config_contacts');
+		}
 
 		if (isset($this->request->post['config_comment'])) {
 			$data['config_comment'] = $this->request->post['config_comment'];
