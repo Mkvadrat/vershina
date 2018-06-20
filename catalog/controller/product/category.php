@@ -52,7 +52,8 @@ class ControllerProductCategory extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->link('common/home'),
+			'separator' => $this->language->get('text_separator')
 		);
 
 		if (isset($this->request->get['path'])) {
@@ -88,7 +89,8 @@ class ControllerProductCategory extends Controller {
 				if ($category_info) {
 					$data['breadcrumbs'][] = array(
 						'text' => $category_info['name'],
-						'href' => $this->url->link('product/category', 'path=' . $path . $url)
+						'href' => $this->url->link('product/category', 'path=' . $path . $url),
+						'separator' => $this->language->get('text_separator')
 					);
 				}
 			}
@@ -140,7 +142,8 @@ class ControllerProductCategory extends Controller {
 			// Set the last category breadcrumb
 			$data['breadcrumbs'][] = array(
 				'text' => $category_info['name'],
-				'href' => $this->url->link('product/category', 'path=' . $this->request->get['path'])
+				'href' => $this->url->link('product/category', 'path=' . $this->request->get['path']),
+				'separator' => $this->language->get('text_separator')
 			);
 
 			if ($category_info['image']) {
@@ -464,7 +467,8 @@ class ControllerProductCategory extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_error'),
-				'href' => $this->url->link('product/category', $url)
+				'href' => $this->url->link('product/category', $url),
+				'separator' => $this->language->get('text_separator')
 			);
 
 			$this->document->setTitle($this->language->get('text_error'));

@@ -250,7 +250,8 @@
 {
     position: absolute;
     top: 50%;
-    right: 50%;
+    #right: 50%;
+    right: 65%;
     width: 2em;
     height: 2em;
     margin-top: -1em;
