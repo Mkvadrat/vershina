@@ -1324,6 +1324,14 @@ class ControllerCatalogProduct extends Controller {
 		} else {
 			$data['subtract'] = 1;
 		}
+		
+		if (isset($this->request->post['rent'])) {
+			$data['rent'] = $this->request->post['rent'];
+		} elseif (!empty($product_info)) {
+			$data['rent'] = $product_info['rent'];
+		} else {
+			$data['rent'] = 1;
+		}
 
 		if (isset($this->request->post['sort_order'])) {
 			$data['sort_order'] = $this->request->post['sort_order'];

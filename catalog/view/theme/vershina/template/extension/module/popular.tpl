@@ -8,7 +8,7 @@
             </a>
             <a class="name" href="<?php echo $product['href']; ?>">
                 <span>
-                    <?php echo $product['description']; ?>
+                    <?php echo $product['name']; ?>
                 </span>
             </a>
             

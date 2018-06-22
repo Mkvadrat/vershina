@@ -14,7 +14,8 @@ class ControllerProductProduct extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->link('common/home'),
+			'separator' => $this->language->get('text_separator')
 		);
 
 		$this->load->model('catalog/category');
@@ -38,7 +39,8 @@ class ControllerProductProduct extends Controller {
 				if ($category_info) {
 					$data['breadcrumbs'][] = array(
 						'text' => $category_info['name'],
-						'href' => $this->url->link('product/category', 'path=' . $path)
+						'href' => $this->url->link('product/category', 'path=' . $path),
+						'separator' => $this->language->get('text_separator')
 					);
 				}
 			}
@@ -67,7 +69,8 @@ class ControllerProductProduct extends Controller {
 
 				$data['breadcrumbs'][] = array(
 					'text' => $category_info['name'],
-					'href' => $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url)
+					'href' => $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url),
+					'separator' => $this->language->get('text_separator')
 				);
 			}
 		}
@@ -77,7 +80,8 @@ class ControllerProductProduct extends Controller {
 		if (isset($this->request->get['manufacturer_id'])) {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_brand'),
-				'href' => $this->url->link('product/manufacturer')
+				'href' => $this->url->link('product/manufacturer'),
+				'separator' => $this->language->get('text_separator')
 			);
 
 			$url = '';
@@ -103,7 +107,8 @@ class ControllerProductProduct extends Controller {
 			if ($manufacturer_info) {
 				$data['breadcrumbs'][] = array(
 					'text' => $manufacturer_info['name'],
-					'href' => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $this->request->get['manufacturer_id'] . $url)
+					'href' => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $this->request->get['manufacturer_id'] . $url),
+					'separator' => $this->language->get('text_separator')
 				);
 			}
 		}
@@ -149,7 +154,8 @@ class ControllerProductProduct extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_search'),
-				'href' => $this->url->link('product/search', $url)
+				'href' => $this->url->link('product/search', $url),
+				'separator' => $this->language->get('text_separator')
 			);
 		}
 
@@ -216,7 +222,8 @@ class ControllerProductProduct extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $product_info['name'],
-				'href' => $this->url->link('product/product', $url . '&product_id=' . $this->request->get['product_id'])
+				'href' => $this->url->link('product/product', $url . '&product_id=' . $this->request->get['product_id']),
+				'separator' => $this->language->get('text_separator')
 			);
 
 			if ($product_info['meta_title']) {
@@ -280,6 +287,7 @@ class ControllerProductProduct extends Controller {
 
 			$data['tab_description'] = $this->language->get('tab_description');
 			$data['tab_attribute'] = $this->language->get('tab_attribute');
+			$data['tab_rent'] = $this->language->get('tab_rent');
 			$data['tab_review'] = sprintf($this->language->get('tab_review'), $product_info['reviews']);
 
 			$data['product_id'] = (int)$this->request->get['product_id'];
@@ -288,8 +296,11 @@ class ControllerProductProduct extends Controller {
 			$data['model'] = $product_info['model'];
 			$data['reward'] = $product_info['reward'];
 			$data['points'] = $product_info['points'];
+			$data['rent'] = html_entity_decode($product_info['description_mini'], ENT_QUOTES, 'UTF-8');
 			$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
 			$data['sticker'] = $this->getStickers($product_info['product_id']);
+			$data['rent_form'] = $this->url->link('product/product/sendmail', '', true);
+			$data['delivery'] = $this->url->link('information/information', 'information_id=6', true);
 
 			if ($product_info['quantity'] <= 0) {
 				$data['stock'] = $product_info['stock_status'];
@@ -340,6 +351,12 @@ class ControllerProductProduct extends Controller {
 				$data['tax'] = $this->currency->format((float)$product_info['special'] ? $product_info['special'] : $product_info['price'], $this->session->data['currency']);
 			} else {
 				$data['tax'] = false;
+			}
+			
+			if ($product_info['rent'] == 1) {
+				$data['button_rent'] = true;
+			} else {
+				$data['button_rent'] = false;
 			}
 
 			$discounts = $this->model_catalog_product->getProductDiscounts($this->request->get['product_id']);
@@ -483,6 +500,42 @@ class ControllerProductProduct extends Controller {
 					$rating = false;
 				}
 				
+				if (isset($this->request->post['name'])) {
+					$data['name'] = $this->request->post['name'];
+				} else {
+					$data['name'] = $this->customer->getFirstName();
+				}
+				
+				if (isset($this->request->post['phone'])) {
+					$data['phone'] = $this->request->post['phone'];
+				} else {
+					$data['phone'] = $this->customer->getTelephone();
+				}
+		
+				if (isset($this->request->post['email'])) {
+					$data['email'] = $this->request->post['email'];
+				} else {
+					$data['email'] = $this->customer->getEmail();
+				}
+		
+				if (isset($this->request->post['enquiry'])) {
+					$data['enquiry'] = $this->request->post['enquiry'];
+				} else {
+					$data['enquiry'] = '';
+				}
+				
+				if (isset($this->request->post['link'])) {
+					$data['link'] = $this->request->post['link'];
+				} else {
+					$data['link'] = $_SERVER['HTTP_REFERER'];
+				}
+				
+				if (isset($this->request->post['product_name'])) {
+					$data['product_name'] = $this->request->post['product_name'];
+				} else {
+					$data['product_name'] =  $product_info['name'];
+				}
+				
 				$productbenefits = $this->model_catalog_product->getProductBenefitsbyProductId($result['product_id']);
 				
 				$benefits = array();
@@ -616,7 +669,8 @@ class ControllerProductProduct extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_error'),
-				'href' => $this->url->link('product/product', $url . '&product_id=' . $product_id)
+				'href' => $this->url->link('product/product', $url . '&product_id=' . $product_id),
+				'separator' => $this->language->get('text_separator')
 			);
 
 			$this->document->setTitle($this->language->get('text_error'));
@@ -802,5 +856,29 @@ class ControllerProductProduct extends Controller {
 		
 		return $this->load->view('product/stickers', $data);
 	
+	}
+	
+	public function sendMail(){
+		if (($this->request->server['REQUEST_METHOD'] == 'POST')) {
+			$this->load->language('information/contact');
+			$mail = new Mail();
+			$mail->protocol = $this->config->get('config_mail_protocol');
+			$mail->parameter = $this->config->get('config_mail_parameter');
+			$mail->smtp_hostname = $this->config->get('config_mail_smtp_hostname');
+			$mail->smtp_username = $this->config->get('config_mail_smtp_username');
+			$mail->smtp_password = html_entity_decode($this->config->get('config_mail_smtp_password'), ENT_QUOTES, 'UTF-8');
+			$mail->smtp_port = $this->config->get('config_mail_smtp_port');
+			$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
+
+			$mail->setTo($this->config->get('config_email'));
+			$mail->setFrom($this->request->post['email']);
+			$mail->setSender(html_entity_decode($this->request->post['name'], ENT_QUOTES, 'UTF-8'));
+			$mail->setSubject(html_entity_decode(sprintf($this->language->get('email_subject'), $this->request->post['name']), ENT_QUOTES, 'UTF-8'));
+						
+			$mail->setHtml('Имя: ' . $this->request->post['name'] . '<br>Телефон: ' . $this->request->post['phone'] . '<br>Email: ' .  $this->request->post['email'] . '<br>Ссылка арендуемого товара: <a href="'.$this->request->post['link'].'">' . $this->request->post['product_name'] . '</a><br>Сообщение: ' . $this->request->post['enquiry']);
+			$mail->send();
+
+			$this->response->redirect($this->url->link('information/contact/success'));
+		}
 	}
 }

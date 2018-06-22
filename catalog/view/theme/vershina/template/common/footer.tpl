@@ -98,7 +98,6 @@
                     <button type="submit">Отправить</button>
                 </form>
             </div>
-            
         </div>
     </footer>
 </body>

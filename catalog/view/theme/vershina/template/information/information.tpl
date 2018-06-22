@@ -27,7 +27,6 @@
                     <hr>
                 </div>
                 <div class="text-page">
-                    <h1 class="title"><?php echo $heading_title; ?></h1>
                     <?php echo $description; ?>
                 </div>
             </section>

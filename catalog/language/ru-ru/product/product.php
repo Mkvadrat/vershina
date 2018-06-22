@@ -35,7 +35,7 @@ $_['text_week']                = 'Неделя';
 $_['text_semi_month']          = 'Полмесяца';
 $_['text_month']               = 'Месяц';
 $_['text_year']                = 'Год';
-$_['text_benefits']     = 'Преимущества:';
+$_['text_benefits']            = 'Преимущества:';
 
 // Entry
 $_['entry_qty']                = 'Кол-во';
@@ -49,6 +49,7 @@ $_['entry_bad']                = 'Плохо';
 $_['tab_description']          = 'Описание';
 $_['tab_attribute']            = 'Характеристики';
 $_['tab_review']               = 'Отзывов (%s)';
+$_['tab_rent']                 = 'Аренда';
 
 // Error
 $_['error_name']               = 'Имя должно содержать от 3 до 25 символов!';

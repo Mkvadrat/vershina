@@ -26,6 +26,7 @@
                     </ul>
                     <hr>
                 </div>
+				
                 <h1 class="title"><?php echo $heading_title; ?></h1>
                 
                 <?php if ($description) { ?>
@@ -36,7 +37,7 @@
                 
                 <?php if ($products) { ?>
                 <div class="category-list">
-                    
+					<div class="content"></div>
                     <?php foreach ($products as $product) { ?>
                         <div class="popular-item">
                             <a class="img" href="<?php echo $product['href']; ?>">
