@@ -233,6 +233,17 @@ class ControllerCommonHeader extends Controller {
 		$data['checkout'] = $this->url->link('checkout/checkout', '', true);
 		$data['contact'] = $this->url->link('information/contact');
 		$data['telephone'] = $this->config->get('config_telephone');
+		$data['buyoneclick_status'] = $this->config->get('buyoneclick_status');
+		$data['buyoneclick_status_category'] = $this->config->get('buyoneclick_status_category');
+		$data['buyoneclick_style_status'] = $this->config->get('buyoneclick_style_status');
+		$data['buyoneclick_validation_status'] = $this->config->get('buyoneclick_validation_status');
+		$data['buyoneclick_validation_type'] = $this->config->get('buyoneclick_validation_type');
+		$data['buyoneclick_ya_status'] = $this->config->get('buyoneclick_ya_status');
+		$data['buyoneclick_ya_counter'] = $this->config->get('buyoneclick_ya_counter');
+		$data['buyoneclick_ya_identificator'] = $this->config->get('buyoneclick_ya_identificator');
+		$data['buyoneclick_google_status'] = $this->config->get('buyoneclick_google_status');
+		$data['buyoneclick_google_category'] = $this->config->get('buyoneclick_google_category');
+		$data['buyoneclick_google_action'] = $this->config->get('buyoneclick_google_action');
 		$data['fax'] = $this->config->get('config_fax');
 		$data['slogan'] = $this->config->get('config_slogan');
 		$data['open'] = $this->config->get('config_open');

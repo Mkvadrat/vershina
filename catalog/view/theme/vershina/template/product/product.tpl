@@ -6,6 +6,7 @@
 			<?php echo $column_left; ?>
 			
             <section class="col-md-9">
+				
                 <div class="breadcrumbs">
                     <hr>
                     <ul>
@@ -26,7 +27,9 @@
                     </ul>
                     <hr>
                 </div>
+				
 				<div class="content"></div>
+				
                 <div class="product-card">
 					<?php if ($thumb || $images) { ?>
 					<div class="photo-gallery">
@@ -40,8 +43,9 @@
 					<?php } ?>
 					</div>
 					<?php } ?>
-                   
+                  
                     <div class="product-text">
+						
                         <h1 class="title"><?php echo $heading_title; ?></h1>
 						
 						<ul class="list-unstyled">
@@ -89,8 +93,15 @@
 								<?php } ?>
 	
 								<a id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="w-button"><i class="material-icons">add_shopping_cart</i><?php echo $button_cart; ?></a>
-										
-								<a href="callback" class="w-button">Купить в один клик</a>
+								
+								<?php if ($buyoneclick_status) { ?>
+									<a href="callback" class="w-button boc_order_btn" <?php if ($buyoneclick_ya_status || $buyoneclick_google_status) { ?> onClick="clickAnalytic(); return true;" <?php } ?> data-toggle="modal" data-target="#boc_order" data-product="<?php echo $heading_title; ?>" data-product_id="<?php echo $product_id; ?>"><?php echo $buyoneclick_name; ?></a>
+								<?php }	?>
+						
+					
+					
+					
+					
 								
 								<?php if($button_rent) { ?>
 									<a href="#rent-form" class="w-button rent-form">Арендовать</a>

@@ -527,7 +527,7 @@ class ControllerProductProduct extends Controller {
 				if (isset($this->request->post['link'])) {
 					$data['link'] = $this->request->post['link'];
 				} else {
-					$data['link'] = $_SERVER['HTTP_REFERER'];
+					$data['link'] = $this->request->get['product_id'];
 				}
 				
 				if (isset($this->request->post['product_name'])) {
@@ -602,6 +602,16 @@ class ControllerProductProduct extends Controller {
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
+			
+			// BuyOneClick
+			$this->load->model('setting/setting');
+			$current_language_id = $this->config->get('config_language_id');
+			$data['buyoneclick_name'] = $this->config->get('buyoneclick_name_'.$current_language_id);
+			$data['buyoneclick_status'] = $this->config->get('buyoneclick_status');
+
+			$data['buyoneclick_ya_status'] = $this->config->get('buyoneclick_ya_status');
+			$data['buyoneclick_google_status'] = $this->config->get('buyoneclick_google_status');
+			// BuyOneClickEnd
 			
 			$data['product_tabs']=array();
 			
@@ -874,8 +884,8 @@ class ControllerProductProduct extends Controller {
 			$mail->setFrom($this->request->post['email']);
 			$mail->setSender(html_entity_decode($this->request->post['name'], ENT_QUOTES, 'UTF-8'));
 			$mail->setSubject(html_entity_decode(sprintf($this->language->get('email_subject'), $this->request->post['name']), ENT_QUOTES, 'UTF-8'));
-						
-			$mail->setHtml('Имя: ' . $this->request->post['name'] . '<br>Телефон: ' . $this->request->post['phone'] . '<br>Email: ' .  $this->request->post['email'] . '<br>Ссылка арендуемого товара: <a href="'.$this->request->post['link'].'">' . $this->request->post['product_name'] . '</a><br>Сообщение: ' . $this->request->post['enquiry']);
+									
+			$mail->setHtml('Имя: ' . $this->request->post['name'] . '<br>Телефон: ' . $this->request->post['phone'] . '<br>Email: ' .  $this->request->post['email'] . '<br>Ссылка арендуемого товара: <a href="'. $this->url->link('product/product', 'product_id=' . $this->request->post['link']).'">' . $this->request->post['product_name'] . '</a><br>Сообщение: ' . $this->request->post['enquiry']);
 			$mail->send();
 
 			$this->response->redirect($this->url->link('information/contact/success'));

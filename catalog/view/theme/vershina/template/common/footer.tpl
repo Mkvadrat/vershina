@@ -100,5 +100,103 @@
             </div>
         </div>
     </footer>
+    
+    <?php if ($buyoneclick_status) { ?>
+        <div id="boc_order" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="boc_form" action="" role="form">
+                        <fieldset>
+                    <div class="modal-header">
+                        <button class="close" type="button" data-dismiss="modal">×</button>
+                        <h2 id="boc_order_title" class="modal-title"><?php echo $buyoneclick_title; ?></h2>
+                    </div>
+                    <div class="modal-body">
+                        <div id="boc_product_field" class="col-xs-12"></div>
+                        <div class="col-xs-12"><hr /></div>
+                        <div class="col-xs-12">
+                            <div style="display:none">
+                                <input id="boc_admin_email" type="text" name="boc_admin_email" value="<?php echo $buyoneclick_admin_email; ?>">
+                            </div>
+                            <div style="display:none">
+                                <input id="boc_product_id" type="text" name="boc_product_id">
+                            </div>
+                            <?php if ($buyoneclick_field1_status) { ?>
+                                <div class="input-group<?php if ($buyoneclick_field1_required) { echo ' has-warning';} ?>">
+                                    <span class="input-group-addon"><i class="fa fa-fw fa-user" aria-hidden="true"></i></span>
+                                    <input id="boc_name" class="form-control<?php if ($buyoneclick_field1_required) { echo ' required';} ?>" type="text" name="boc_name" placeholder="<?php echo $buyoneclick_field1_title; ?>">
+                                </div>
+                                <br />
+                            <?php } ?>
+                            <?php if ($buyoneclick_field2_status) { ?>
+                                <div class="input-group<?php if ($buyoneclick_field2_required) { echo ' has-warning';} ?>">
+                                    <span class="input-group-addon"><i class="fa fa-fw fa-phone-square" aria-hidden="true"></i></span>
+                                    <input id="boc_phone" class="form-control<?php if ($buyoneclick_field2_required) { echo ' required';} ?> phone" type="tel" name="boc_phone" placeholder="<?php if ($buyoneclick_validation_status) { echo $buyoneclick_validation_type; } else { echo $buyoneclick_field2_title; } ?>"<?php if ($buyoneclick_validation_status) {echo ' data-pattern="true"';} else {echo ' data-pattern="false"';} ?>>
+                                </div>
+                                <br />
+                            <?php } ?>
+                            <?php if ($buyoneclick_field3_status) { ?>
+                                <div class="input-group<?php if ($buyoneclick_field3_required) { echo ' has-warning';} ?>">
+                                    <span class="input-group-addon"><i class="fa fa-fw fa-envelope" aria-hidden="true"></i></span>
+                                    <input id="boc_email" class="form-control<?php if ($buyoneclick_field3_required) { echo ' required';} ?>" type="email" name="boc_email" placeholder="<?php echo $buyoneclick_field3_title; ?>">
+                                </div>
+                                <br />
+                            <?php } ?>
+                            <?php if ($buyoneclick_field4_status) { ?>
+                                <div class="form-group<?php if ($buyoneclick_field4_required) { echo ' has-warning';} ?>">
+                                    <textarea id="boc_message" class="form-control<?php if ($buyoneclick_field4_required) { echo ' required';} ?>" name="boc_message" rows="3" placeholder="<?php echo $buyoneclick_field4_title; ?>" ></textarea>
+                                </div>
+                            <?php } ?>
+                            <?php if ($buyoneclick_agree_status !=0) { ?>
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="boc_agree" type="checkbox" name="boc_agree" class="required" value="1"> <?=$buyoneclick_text_agree;?>
+                                    </label>
+                                </div>
+                            <?php } ?>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-sm-2 hidden-xs">
+                        </div>
+                        <div class="col-sm-8 col-xs-12">
+                            <button type="submit" id="boc_submit" class="btn btn-lg btn-block btn-default"><?php echo $buyoneclick_button_order; ?></button>
+                        </div>
+                        <div class="col-sm-2 hidden-xs">
+                        </div>
+                    </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="boc_success" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="text-center"><?php echo $buyoneclick_success_field; ?></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript"><!--
+        $('.boc_order_btn').on('click', function() {
+            $.ajax({
+                url: 'index.php?route=common/buyoneclick/info',
+                type: 'post',
+                data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
+                success: function(data) {
+                    //console.log(data);
+                    $('#boc_product_field').html(data);
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                }
+            });
+        });			
+        //--></script>
+    <?php } ?>
+    
 </body>
 </html>

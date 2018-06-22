@@ -297,3 +297,5 @@
 2018-06-22 16:32:03 - PHP Warning:  Cannot modify header information - headers already sent by (output started at D:\OpenServer\domains\vershina92.loc\admin\controller\startup\error.php:39) in D:\OpenServer\domains\vershina92.loc\system\library\response.php on line 17
 2018-06-22 16:37:52 - PHP Notice:  Undefined index: rent in D:\OpenServer\domains\vershina92.loc\catalog\controller\product\product.php on line 355
 2018-06-22 16:38:05 - PHP Notice:  Undefined index: rent in D:\OpenServer\domains\vershina92.loc\catalog\controller\product\product.php on line 355
+2018-06-22 17:47:44 - PHP Notice:  Undefined variable: product in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\product\product.tpl on line 105
+2018-06-22 17:47:44 - PHP Notice:  Undefined variable: product in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\product\product.tpl on line 105

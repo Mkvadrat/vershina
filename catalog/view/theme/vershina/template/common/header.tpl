@@ -36,6 +36,33 @@
 <!-- YANDEX MAPS -->
 <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 
+<!-- BUY ONE CLICK -->
+<?php if ($buyoneclick_status || $buyoneclick_status_category) { ?>
+<script src="catalog/view/javascript/buyoneclick.js" type="text/javascript"></script>
+<?php if ($buyoneclick_validation_status) { ?>
+	<script src="catalog/view/javascript/jquery.mask.min.js" type="text/javascript"></script>
+	<script>
+		$(document).ready(function(){
+			$('#boc_phone').mask('<?php echo $buyoneclick_validation_type; ?>');
+		});
+	</script>
+<?php } ?>
+<?php if ($buyoneclick_ya_status || $buyoneclick_google_status) { ?>
+	<script>
+		function clickAnalytic(){
+			<?php if ($buyoneclick_ya_status) { ?>
+				yaCounter<?=$buyoneclick_ya_counter?>.reachGoal('<?=$buyoneclick_ya_identificator?>');
+			<?php } ?>
+			<?php if ($buyoneclick_google_status) { ?>
+				ga('send', 'event', '<?=$buyoneclick_google_category?>', '<?=$buyoneclick_google_action?>');
+			<?php } ?>
+			return true;
+		}
+	</script>
+<?php } ?>
+<?php if ($buyoneclick_style_status) { ?><link href="catalog/view/theme/vershina/stylesheet/buyoneclick.css" rel="stylesheet"><?php } ?>
+<?php } ?>
+
 <!-- OTHER -->
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
@@ -50,6 +77,7 @@
 <?php foreach ($analytics as $analytic) { ?>
 <?php echo $analytic; ?>
 <?php } ?>
+
 </head>
 <body>
 	<header>

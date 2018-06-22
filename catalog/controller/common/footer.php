@@ -6,6 +6,54 @@
 
 class ControllerCommonFooter extends Controller {
 	public function index() {
+		// BuyOneClick
+		$this->load->model('setting/setting');
+		$current_language_id = $this->config->get('config_language_id');
+		$data['buyoneclick_success_field'] = htmlspecialchars_decode($this->config->get('buyoneclick_success_field_'.$current_language_id));
+		$data['buyoneclick_status'] = $this->config->get('buyoneclick_status');
+		$data['buyoneclick_status_category'] = $this->config->get('buyoneclick_status_category');
+		$data['buyoneclick_field1_status'] = $this->config->get('buyoneclick_field1_status');
+		$data['buyoneclick_field1_required'] = $this->config->get('buyoneclick_field1_required');
+		$data['buyoneclick_field2_status'] = $this->config->get('buyoneclick_field2_status');
+		$data['buyoneclick_field2_required'] = $this->config->get('buyoneclick_field2_required');
+		$data['buyoneclick_field3_status'] = $this->config->get('buyoneclick_field3_status');
+		$data['buyoneclick_field3_required'] = $this->config->get('buyoneclick_field3_required');
+		$data['buyoneclick_field4_status'] = $this->config->get('buyoneclick_field4_status');
+		$data['buyoneclick_field4_required'] = $this->config->get('buyoneclick_field4_required');
+		$data['buyoneclick_validation_status'] = $this->config->get('buyoneclick_validation_status');
+		$data['buyoneclick_validation_type'] = $this->config->get('buyoneclick_validation_type');
+
+		$data['buyoneclick_admin_email'] = $this->config->get('config_email');
+
+		$this->load->language('extension/module/buyoneclick');
+		$data['buyoneclick_title'] = $this->language->get('buyoneclick_title');
+		$data['buyoneclick_button'] = $this->language->get('buyoneclick_button');
+		if ($data['buyoneclick_success_field'] == '') {
+			$data['buyoneclick_success_field'] = $this->language->get('buyoneclick_success');
+		}
+		$data['buyoneclick_field1_title'] = $this->language->get('buyoneclick_field1_title');
+		$data['buyoneclick_field2_title'] = $this->language->get('buyoneclick_field2_title');
+		$data['buyoneclick_field3_title'] = $this->language->get('buyoneclick_field3_title');
+		$data['buyoneclick_field4_title'] = $this->language->get('buyoneclick_field4_title');
+		$data['buyoneclick_button_order'] = $this->language->get('buyoneclick_button_order');
+		$data['buyoneclick_required_text'] = $this->language->get('buyoneclick_required_text');
+		$data['buyoneclick_error_required'] = $this->language->get('buyoneclick_error_required');
+		$data['buyoneclick_error_sending'] = $this->language->get('buyoneclick_error_sending');
+
+		$data['buyoneclick_agree_status'] = $this->config->get('buyoneclick_agree_status');
+		if ($this->config->get('buyoneclick_agree_status')) {
+			$this->load->model('catalog/information');
+			$information_info = $this->model_catalog_information->getInformation($this->config->get('buyoneclick_agree_status'));
+			if ($information_info) {
+				$data['buyoneclick_text_agree'] = sprintf($this->language->get('buyoneclick_text_agree'), $this->url->link('information/information/agree', 'information_id=' . $this->config->get('buyoneclick_agree_status'), 'SSL'), $information_info['title'], $information_info['title']);
+			} else {
+				$data['buyoneclick_text_agree'] = '';
+			}
+		} else {
+			$data['buyoneclick_text_agree'] = '';
+		}
+		// BuyOneClickEnd
+		
 		$this->load->language('common/footer');
 
 		$data['scripts'] = $this->document->getScripts('footer');
