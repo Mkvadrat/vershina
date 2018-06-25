@@ -398,7 +398,6 @@ span.active-rubric {
     width: 30%;
     height: 50px;
     background: #333333;
-    cursor: pointer;
 }
 .popular-item .add-to-bucket i {
     line-height: 50px;
@@ -599,131 +598,6 @@ footer .row>div.footer-info {
 .sticky-contact-us a img {
     width: 100%;
 }
-
-/*Добавлена форма аренды*/
-#rent-form {
-    display: none;
-    max-width: 530px;
-    cursor: default;
-    padding: 0;
-    background: #f1f1f1;
-    border-radius: 5px;
-    box-shadow: 0 0 180px 0px rgba(0,0,0,0.5);
-}
-#rent-form * {
-    color: #444444;
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 16px;
-    line-height: 18px;
-}
-#rent-form h3 {
-    font-size: 18px;
-    line-height: 18px;
-    padding: 0 40px;
-    margin: 20px 0;
-    font-weight: bold;
-}
-#rent-form label {
-    display: inline-block;
-    width: 100%;
-    margin: 20px 0 5px;
-    line-height: 40px;
-    font-weight: normal;
-}
-#rent-form label+label {
-    margin: 5px 0;
-}
-#rent-form label:last-child {
-    margin-bottom: 20px;
-    line-height: normal;
-}
-#rent-form label input:not([type=checkbox]),
-#rent-form label textarea {
-    float: right;
-    width: 70%;
-    line-height: 40px;
-    font-style: italic;
-    border: 1px solid #e0e0e0;
-    outline: none;
-    resize: none;
-    padding: 0 0 0 10px;
-}
-#rent-form label textarea {
-    line-height: normal;
-    padding: 10px 0 0 10px;
-}
-#rent-form label input[type=checkbox] {
-    visibility: hidden;
-}
-#rent-form label:last-child {
-    position: relative;
-}
-#rent-form label:last-child::before {
-    content: ' ';
-    background: #fff;
-    display: block;
-    width: 13px;
-    height: 13px;
-    border: 1px solid #e2e2e2;
-    position: absolute;
-    left: 0;
-    top: 6px;
-}
-#rent-form label input[type=checkbox]:checked::before {
-    content: ' ';
-    display: block;
-    width: 4px;
-    border: 1px solid #000;
-    position: absolute;
-    left: 3px;
-    top: 12px;
-    transform: rotate(45deg);
-    visibility: visible;
-}
-#rent-form label input[type=checkbox]:checked::after {
-    content: ' ';
-    display: block;
-    width: 7px;
-    border: 1px solid #000;
-    position: absolute;
-    left: 5px;
-    top: 11px;
-    transform: rotate(-45deg);
-    visibility: visible;
-}
-
-#rent-form div {
-    padding: 0 40px;
-    border: 1px;
-    border-top: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
-}
-#rent-form button {
-    float: right;
-    margin: 10px 40px;
-    border: none;
-    outline: none;
-    background: #333333;
-    color: #f8eb0d;
-    line-height: 44px;
-    padding: 0 22px;
-}
-#rent-form .fancybox-close-small {
-    width: 20px;
-    height: 20px;
-    margin: 3px;
-    padding: 0;
-    border-radius: 50%;
-}
-#rent-form .fancybox-close-small svg {
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-#rent-form .fancybox-close-small * {
-    color: #fff;
-}
-
 #call-to-me {
     display: none;
     max-width: 530px;
@@ -1187,7 +1061,7 @@ footer .row>div.footer-info {
     display: inline-block;
     width: 100%;
 }
-#.product-refs p {
+.product-refs p {
     font-size: 14px;
     line-height: 18px;
     color: #a6a6a6;
@@ -1284,7 +1158,6 @@ footer .row>div.footer-info {
 .to-order a.w-button:first-of-type {
     background: #333333;
     color: #f8eb0d;
-    cursor: pointer;
 }
 .same-products {
     padding-top: 20px;

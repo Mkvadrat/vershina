@@ -29,6 +29,7 @@
 <!-- STYLES -->
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
 <link rel="stylesheet" href="catalog/view/theme/vershina/stylesheet/stylesheet.css">
 <link rel="stylesheet" href="catalog/view/theme/vershina/stylesheet/media.css">

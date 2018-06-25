@@ -172,17 +172,20 @@ class ControllerAccountAddress extends Controller {
 	protected function getList() {
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->link('common/home'),
+			'separator' => $this->language->get('text_separator')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('account/account', '', true)
+			'href' => $this->url->link('account/account', '', true),
+			'separator' => $this->language->get('text_separator')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('account/address', '', true)
+			'href' => $this->url->link('account/address', '', true),
+			'separator' => $this->language->get('text_separator')
 		);
 
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -272,28 +275,33 @@ class ControllerAccountAddress extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->link('common/home'),
+			'separator' => $this->language->get('text_separator')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('account/account', '', true)
+			'href' => $this->url->link('account/account', '', true),
+			'separator' => $this->language->get('text_separator')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('account/address', '', true)
+			'href' => $this->url->link('account/address', '', true),
+			'separator' => $this->language->get('text_separator')
 		);
 
 		if (!isset($this->request->get['address_id'])) {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_edit_address'),
-				'href' => $this->url->link('account/address/add', '', true)
+				'href' => $this->url->link('account/address/add', '', true),
+				'separator' => $this->language->get('text_separator')
 			);
 		} else {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_edit_address'),
-				'href' => $this->url->link('account/address/edit', 'address_id=' . $this->request->get['address_id'], true)
+				'href' => $this->url->link('account/address/edit', 'address_id=' . $this->request->get['address_id'], true),
+				'separator' => $this->language->get('text_separator')
 			);
 		}
 

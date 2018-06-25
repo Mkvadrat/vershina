@@ -26,17 +26,20 @@ class ControllerAccountOrder extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->link('common/home'),
+			'separator' => $this->language->get('text_separator')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('account/account', '', true)
+			'href' => $this->url->link('account/account', '', true),
+			'separator' => $this->language->get('text_separator')
 		);
 		
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('account/order', $url, true)
+			'href' => $this->url->link('account/order', $url, true),
+			'separator' => $this->language->get('text_separator')
 		);
 
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -136,22 +139,26 @@ class ControllerAccountOrder extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_home'),
-				'href' => $this->url->link('common/home')
+				'href' => $this->url->link('common/home'),
+				'separator' => $this->language->get('text_separator')
 			);
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_account'),
-				'href' => $this->url->link('account/account', '', true)
+				'href' => $this->url->link('account/account', '', true),
+				'separator' => $this->language->get('text_separator')
 			);
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('heading_title'),
-				'href' => $this->url->link('account/order', $url, true)
+				'href' => $this->url->link('account/order', $url, true),
+				'separator' => $this->language->get('text_separator')
 			);
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_order'),
-				'href' => $this->url->link('account/order/info', 'order_id=' . $this->request->get['order_id'] . $url, true)
+				'href' => $this->url->link('account/order/info', 'order_id=' . $this->request->get['order_id'] . $url, true),
+				'separator' => $this->language->get('text_separator')
 			);
 
 			$data['heading_title'] = $this->language->get('text_order');
@@ -393,22 +400,26 @@ class ControllerAccountOrder extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_home'),
-				'href' => $this->url->link('common/home')
+				'href' => $this->url->link('common/home'),
+				'separator' => $this->language->get('text_separator')
 			);
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_account'),
-				'href' => $this->url->link('account/account', '', true)
+				'href' => $this->url->link('account/account', '', true),
+				'separator' => $this->language->get('text_separator')
 			);
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('heading_title'),
-				'href' => $this->url->link('account/order', '', true)
+				'href' => $this->url->link('account/order', '', true),
+				'separator' => $this->language->get('text_separator')
 			);
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_order'),
-				'href' => $this->url->link('account/order/info', 'order_id=' . $order_id, true)
+				'href' => $this->url->link('account/order/info', 'order_id=' . $order_id, true),
+				'separator' => $this->language->get('text_separator')
 			);
 
 			$data['continue'] = $this->url->link('account/order', '', true);
