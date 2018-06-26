@@ -1,25 +1,44 @@
 <?php echo $header; ?>
-<div class="container">
-  <ul class="breadcrumb">
-    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-    <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-    <?php } ?>
-  </ul>
-  <div class="row"><?php echo $column_left; ?>
-    <?php if ($column_left && $column_right) { ?>
-    <?php $class = 'col-sm-6'; ?>
-    <?php } elseif ($column_left || $column_right) { ?>
-    <?php $class = 'col-sm-9'; ?>
-    <?php } else { ?>
-    <?php $class = 'col-sm-12'; ?>
-    <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?></h1>
-      <p><?php echo $text_error; ?></p>
-      <div class="buttons clearfix">
-        <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
-      </div>
-      <?php echo $content_bottom; ?></div>
-    <?php echo $column_right; ?></div>
-</div>
+    
+    <div class="container">
+        <div class="row">
+            
+            <?php echo $column_left; ?>
+
+            <?php if ($column_left) { ?>
+            <?php $class = 'col-sm-9'; ?>
+            <?php } else { ?>
+            <?php $class = 'col-sm-12'; ?>
+            <?php } ?>
+            
+            <section class="<?php echo $class; ?> contacts">
+                <div class="breadcrumbs">
+                    <hr>
+                    <ul>
+                        <?php			
+                            $count = count($breadcrumbs);
+                            $i=1;
+                            foreach ($breadcrumbs as $breadcrumb) {
+                                if($i!=$count){
+                        ?>
+                                <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a><?php echo ' ' . $breadcrumb['separator']; ?></li>
+                        <?php
+                                }else{
+                                    echo '<li><span> '.$breadcrumb['text'] . '</span></li>'; 
+                                }		
+                                $i++;
+                            } 
+                        ?>
+                    </ul>
+                    <hr>
+                </div>
+                <div class="text-page">
+                    <h1 class="title"><?php echo $heading_title; ?></h1>
+                    <p><strong><?php echo $text_error; ?></strong></p>
+                    <p><a href="<?php echo $continue; ?>"><?php echo $button_continue; ?></a></p>
+                </div>
+            </section>
+        </div>
+    </div>
+    
 <?php echo $footer; ?>

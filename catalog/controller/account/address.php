@@ -456,7 +456,7 @@ class ControllerAccountAddress extends Controller {
 		}  elseif (!empty($address_info)) {
 			$data['zone_id'] = $address_info['zone_id'];
 		} else {
-			$data['zone_id'] = '';
+			$data['zone_id'] = '3483';
 		}
 
 		$this->load->model('localisation/country');

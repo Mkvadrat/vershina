@@ -61,22 +61,26 @@ class ControllerCheckoutSuccess extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->link('common/home'),
+			'separator' => $this->language->get('text_separator')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_basket'),
-			'href' => $this->url->link('checkout/cart')
+			'href' => $this->url->link('checkout/cart'),
+			'separator' => $this->language->get('text_separator')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_checkout'),
-			'href' => $this->url->link('checkout/checkout', '', true)
+			'href' => $this->url->link('checkout/checkout', '', true),
+			'separator' => $this->language->get('text_separator')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_success'),
-			'href' => $this->url->link('checkout/success')
+			'href' => $this->url->link('checkout/success'),
+			'separator' => $this->language->get('text_separator')
 		);
 
 		if (! empty($this->session->data['last_order_id']) ) {

@@ -14,12 +14,14 @@ class ControllerCheckoutCart extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'href' => $this->url->link('common/home'),
-			'text' => $this->language->get('text_home')
+			'text' => $this->language->get('text_home'),
+			'separator' => $this->language->get('text_separator')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'href' => $this->url->link('checkout/cart'),
-			'text' => $this->language->get('heading_title')
+			'text' => $this->language->get('heading_title'),
+			'separator' => $this->language->get('text_separator')
 		);
 
 		if ($this->cart->hasProducts() || !empty($this->session->data['vouchers'])) {
