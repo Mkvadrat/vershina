@@ -1,6 +1,6 @@
       <div id="yo-<?php echo $module; ?>" class="<?php echo $box_class; ?>">
         <?php if ($title) { ?>
-        <div class="<?php echo $title_class ? $title_class : ''; ?> <?php echo $minimized ? 'menu-collapsed' : 'menu-expanded'; ?> toggle-title"><?php echo $title; ?></div>
+        <!--<div class="<?php echo $title_class ? $title_class : ''; ?> <?php echo $minimized ? 'menu-collapsed' : 'menu-expanded'; ?> toggle-title">--><?php echo $title; ?><!--</div>-->
         <?php } ?>
         <div <?php echo $content_class ? 'class="'.$content_class.'"' : ''; ?> <?php echo $minimized ? 'style="display:none"' : ''; ?>>
           <ul class="yo-<?php echo $menu_design; ?><?php echo $column == '1' ? ' fm-one' : ''; ?>">

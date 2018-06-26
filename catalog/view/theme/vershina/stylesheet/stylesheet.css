@@ -1276,6 +1276,7 @@ footer .row>div.footer-info {
 .to-order a.w-button:nth-of-type(1),
 .to-order a.w-button:nth-of-type(2) {
     margin-top: 0;
+    cursor: pointer;
 }
 .to-order a.w-button:first-of-type,
 .to-order a.w-button:last-of-type {

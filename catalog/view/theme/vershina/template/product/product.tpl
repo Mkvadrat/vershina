@@ -95,14 +95,9 @@
 								<a id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="w-button"><i class="material-icons">add_shopping_cart</i><?php echo $button_cart; ?></a>
 								
 								<?php if ($buyoneclick_status) { ?>
-									<a href="callback" class="w-button boc_order_btn" <?php if ($buyoneclick_ya_status || $buyoneclick_google_status) { ?> onClick="clickAnalytic(); return true;" <?php } ?> data-toggle="modal" data-target="#boc_order" data-product="<?php echo $heading_title; ?>" data-product_id="<?php echo $product_id; ?>"><?php echo $buyoneclick_name; ?></a>
+									<a class="w-button boc_order_btn" data-toggle="modal" data-target="#boc_order" data-product="<?php echo $heading_title; ?>" data-product_id="<?php echo $product_id; ?>"><?php echo $buyoneclick_name; ?></a>
 								<?php }	?>
-						
-					
-					
-					
-					
-								
+
 								<?php if($button_rent) { ?>
 									<a href="#rent-form" class="w-button rent-form">Арендовать</a>
 									
@@ -185,7 +180,7 @@ $('#button-cart').on('click', function() {
 			if (json['success']) {
 				$('.content').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
-				$('.items-cart').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+				$('.items-cart').html(json['total']);
 
 				$('html, body').animate({ scrollTop: 0 }, 'slow');
 			}
