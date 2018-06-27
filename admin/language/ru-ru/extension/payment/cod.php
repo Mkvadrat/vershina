@@ -5,7 +5,7 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 // Heading
-$_['heading_title']					= 'Оплата при доставке';
+$_['heading_title']					= 'В кассу в офисе';
 
 // Text
 $_['text_payment']					= 'Оплата';

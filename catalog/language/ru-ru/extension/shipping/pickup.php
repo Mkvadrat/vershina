@@ -5,5 +5,5 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 // Text
-$_['text_title']       = 'Самовывоз';
-$_['text_description'] = 'Самовывоз из магазина';
+$_['text_title']       = '';
+$_['text_description'] = 'Самовывоз';

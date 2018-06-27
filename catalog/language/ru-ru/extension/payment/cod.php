@@ -5,4 +5,4 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 // Text
-$_['text_title'] = 'Оплата при доставке';
+$_['text_title'] = 'В кассу в офисе';
