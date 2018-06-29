@@ -100,7 +100,7 @@ header .w-button {
 .header-top .header-info span+span {
     margin-left: 40px;
 }
-.header-top .header-info span i {
+.header-top .header-info span svg {
     position: absolute;
     top: 0px;
     left: -28px;
@@ -138,7 +138,7 @@ header .w-button {
     justify-content: space-between;
     flex-direction: column;
 }
-.header-top .header-purchase a i {
+.header-top .header-purchase a svg {
     color: #333;
     line-height: 10px;
     font-size: 18px;
@@ -237,7 +237,7 @@ section {
     border-left: none;
     background: #f6f6f6;
 }
-.search button i {
+.search button svg {
     color: #20282e;
     line-height: 50px;
     font-size: 18px;
@@ -370,11 +370,12 @@ span.active-rubric {
     background: #333333;
     cursor: pointer;
 }
-.popular-item .add-to-bucket i {
+.popular-item .add-to-bucket svg {
     line-height: 50px;
     color: #f8eb0d;
-    display: inline-block;
-    font-size: 24px;
+    font-size: 26px;
+    position: relative;
+    top: 11px;
 }
 .seo-text {
 
@@ -533,7 +534,7 @@ footer .row>div.footer-info {
     height: 100%;
     padding: 7px 16px;
 }
-.sticky-bucket i {
+.sticky-bucket svg {
     display: inline-block;
     float: left;
     font-size: 20px;
@@ -1232,7 +1233,7 @@ footer .row>div.footer-info {
     margin: 0;
     line-height: 50px;
 }
-.to-order i {
+.to-order svg {
     line-height: 7px;
     display: inline-block;
     position: relative;

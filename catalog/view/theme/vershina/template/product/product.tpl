@@ -92,7 +92,7 @@
 								<div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_minimum; ?></div>
 								<?php } ?>
 	
-								<a id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="w-button"><i class="fas fa-cart-plus"></i><?php echo $button_cart; ?></a>
+								<a id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="w-button"><i class="fas fa-cart-plus fa-10x"></i><?php echo $button_cart; ?></a>
 								
 								<?php if ($buyoneclick_status) { ?>
 									<a class="w-button boc_order_btn" data-toggle="modal" data-target="#boc_order" data-product="<?php echo $heading_title; ?>" data-product_id="<?php echo $product_id; ?>"><?php echo $buyoneclick_name; ?></a>
@@ -150,7 +150,7 @@
 									<?php } ?>
 								</span>
 								<a class="more w-button" href="<?php echo $product['href']; ?>">Подробнее</a>
-								<a class="add-to-bucket" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="fas fa-cart-plus"></i></a>
+								<a class="add-to-bucket" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="fas fa-cart-plus fa-10x"></i></a>
 							</div>
 							<?php } ?>
 						<?php } ?>
