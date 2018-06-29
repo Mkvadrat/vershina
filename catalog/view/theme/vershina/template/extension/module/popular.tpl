@@ -28,7 +28,7 @@
             <?php } ?>
 
             <a class="more w-button" href="<?php echo $product['href']; ?>">Подробнее</a>
-            <a style="cursor: pointer;" class="add-to-bucket" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="material-icons">add_shopping_cart</i></a>
+            <a style="cursor: pointer;" class="add-to-bucket" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="fas fa-cart-plus"></i></a>
         </div>
         <?php } ?>
     </div>

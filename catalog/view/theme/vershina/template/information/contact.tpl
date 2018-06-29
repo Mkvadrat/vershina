@@ -57,6 +57,7 @@
                             {
                               preset: 'twirl#blueStretchyIcon'
                             });
+                              myMap.behaviors.disable('scrollZoom');
                               myMap.geoObjects.add(myPlacemark);
                               myMap.controls.add(new ymaps.control.ScaleLine()).add('typeSelector');
                           },

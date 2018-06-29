@@ -11,13 +11,6 @@
     font-weight: normal;
     font-style: normal;
 }
-@font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: url('MaterialIcons-Regular.ttf') format('truetype');
-    src: url('MaterialIcons-Regular.woff') format('woff');
-  }
 /* fonts */
 body *:not(.fancybox-container *) {
     font-family: 'Myriad Pro Regular';
@@ -42,30 +35,6 @@ p {
     line-height: 24px;
     color: #333333;
     margin-top: 0;
-}
-.material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;  /* Preferred icon size */
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-  
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased;
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility;
-  
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale;
-  
-    /* Support for IE. */
-    font-feature-settings: 'liga';
 }
 .w-button {
     display: inline-block;
@@ -133,8 +102,9 @@ header .w-button {
 }
 .header-top .header-info span i {
     position: absolute;
-    top: -4px;
+    top: 0px;
     left: -28px;
+    font-size: 17px;
 }
 .header-top .header-info p {
     width: 100%;
@@ -170,10 +140,8 @@ header .w-button {
 }
 .header-top .header-purchase a i {
     color: #333;
-    position: relative;
-    top: 6px;
-    left: 3px;
     line-height: 10px;
+    font-size: 18px;
 }
 .header-top .header-purchase a span {
     color: #333;
@@ -272,6 +240,7 @@ section {
 .search button i {
     color: #20282e;
     line-height: 50px;
+    font-size: 18px;
 }
 .catalog-list {
     background: #f0f0f0;
@@ -405,6 +374,7 @@ span.active-rubric {
     line-height: 50px;
     color: #f8eb0d;
     display: inline-block;
+    font-size: 24px;
 }
 .seo-text {
 
@@ -566,6 +536,9 @@ footer .row>div.footer-info {
 .sticky-bucket i {
     display: inline-block;
     float: left;
+    font-size: 20px;
+    position: relative;
+    top: 2px;
 }
 .sticky-bucket span {
     color: #333;
@@ -1263,8 +1236,9 @@ footer .row>div.footer-info {
     line-height: 7px;
     display: inline-block;
     position: relative;
-    top: 7px;
     right: 10px;
+    top: 1px;
+    font-size: 20px;
 }
 .to-order a.w-button {
     display: inline-block;

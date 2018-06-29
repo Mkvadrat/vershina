@@ -29,7 +29,7 @@
 <!-- STYLES -->
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
 <link rel="stylesheet" href="catalog/view/theme/vershina/stylesheet/stylesheet.css">
 <link rel="stylesheet" href="catalog/view/theme/vershina/stylesheet/media.css">
@@ -121,8 +121,8 @@
                         <a href="#call-to-me" class="w-button">Обратный звонок</a>
                     </div>
                     <div class="col-md-4 header-info">
-                        <span><i class="material-icons">domain</i><?php echo $info_a; ?></span>
-						<span><i class="material-icons">local_shipping</i><?php echo $info_b; ?></span>
+                        <span><i class="fas fa-store-alt"></i><?php echo $info_a; ?></span>
+						<span><i class="fas fa-truck"></i><?php echo $info_b; ?></span>
 						<p><?php echo $open; ?></p>
                     </div>
                     <div class="col-md-2 header-contacts">
@@ -166,7 +166,7 @@
     </header>
     <div class="sticky-bucket">
         <a href="<?php echo $sticky_cart; ?>">
-            <i class="material-icons">local_grocery_store</i> <span class="items-cart" id="cart-total"><?php echo $text_items; ?></span>
+            <i class="fas fa-shopping-cart"></i> <span class="items-cart" id="cart-total"><?php echo $text_items; ?></span>
         </a>
     </div>
 	<div class="sticky-contact-us">
