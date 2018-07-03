@@ -5,7 +5,7 @@
         
             <?php echo $column_left; ?>
             
-            <section class="col-md-9 contacts">
+            <section class="col-md-9 cart-page">
                 <div class="breadcrumbs">
                     <hr>
                     <ul>

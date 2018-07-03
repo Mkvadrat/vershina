@@ -73,10 +73,10 @@
                     <div>
                         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
                             <label for="name">Имя: <input name="name" value="<?php echo $name; ?>" type="text" placeholder="Введите Ваше имя"></label>
-                            <label for="phone">Телефон*: <input name="phone" value="<?php echo $phone; ?>" class="phone" type="text" placeholder="+ 7 (___) - ___ - __ - __"></label>
+                            <label for="phone">Телефон*: <input name="phone" value="<?php echo $phone; ?>" class="phone" type="text" placeholder="+ 7 (___) - ___ - ____"></label>
                             <label for="phone">Email*: <input  name="email" value="<?php echo $email; ?>" type="text" placeholder="Введите Ваш e-mail"></label>
                             <label for="question">Вопрос: <textarea name="enquiry" cols="30" rows="5" placeholder="Ваш вопрос"></textarea></label>
-                            <label><input type="checkbox"> я согласен (согласна) с <a href="#">политикой конфиденциальности</a></label>
+                            <label><span class="check-arrow" style="display: none;"></span><input type="checkbox"> я согласен (согласна) с <a href="#">политикой конфиденциальности</a></label>
                             <button type="submit">Отправить</button>
                         </form>
                     </div>

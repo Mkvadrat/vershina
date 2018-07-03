@@ -161,13 +161,25 @@ $(document).ready(function() {
     $('.photo-gallery a').fancybox();
     
     $('.tabs button').on('click', function() {
-        $('.tabs button').toggleClass('active');
-        $('.product-refs').toggleClass('active');
-        $('.product-description').toggleClass('active');
+		if (!($(this).is('.active'))) {
+			$('.tabs button').toggleClass('active');
+			$('.product-refs').toggleClass('active');
+			$('.product-description').toggleClass('active');
+		}
     });
 	
-	$('.phone').inputmask("+7(999) 999-9999");  //static mask
+	$('.phone').inputmask("+ 7 (999) - 999 - 9999");  //static mask
 	
+	$('label input[type=checkbox]').on('change', function(){
+		$(this).prev('.check-arrow').toggle();
+        return Attreb($(this));
+    });
+    function Attreb(elem) {
+        return (elem.prop('checked')) ? elem.parents('label').next('button').attr('disabled', false) : elem.parents('label').next('button').attr('disabled', true);
+	}
+	$('label input[type=checkbox]').each(function() {
+		Attreb($(this));
+	});
 	
 });
 
