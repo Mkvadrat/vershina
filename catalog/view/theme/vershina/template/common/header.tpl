@@ -129,6 +129,7 @@
                     <div class="col-md-2 header-contacts">
 						<span><?php echo $address; ?></span>
 						<a href="tel:<?php echo $telephone; ?>"><?php echo $telephone; ?></a>
+						<span><?php echo $address; ?></span> <!-- тут должен быть второй город Симферополь -->
 						<a href="tel:<?php echo $fax; ?>"><?php echo $fax; ?></a>
                     </div>
 					

@@ -72,6 +72,7 @@ header * {
 }
 header .w-button {
     padding: 13px 17px; 
+    font-size: 14px;
 }
 .header-top {
     background: #fff;
@@ -88,10 +89,12 @@ header .w-button {
 }
 .logo a span {
     font-size: 12px;
-    line-height: 18px;
+    line-height: 16px;
     display: inline-block;
     font-style: italic;
     padding-top: 5px;
+    text-align: center;
+    color: #464646;
 }
 .header-top div.header-info {
     justify-content: flex-start;
@@ -120,15 +123,20 @@ header .w-button {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 10px 0;
+    padding: 8px 0 12px;
 }
 .header-contacts span {
     margin-top: 3px;
+    line-height: 14px;
 }
 .header-top .header-contacts a {
     text-decoration: none;
     font-size: 18px;
     line-height: 18px;
+    font-weight: bolder;
+}
+.header-top .header-contacts a+span {
+    margin-top: 6px;
 }
 .header-top .header-contacts a:hover {
     text-decoration: underline;
@@ -163,7 +171,7 @@ header .w-button {
 header .menu {
     width: 100%;
     background: #333333;
-    height: 70px;
+    height: 50px;
 }
 header .menu ul {
     list-style: none;
@@ -171,12 +179,12 @@ header .menu ul {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    height: 70px;
+    height: 50px;
 }
 header .menu ul li a {
     display: inline-block;
-    font-size: 20px;
-    line-height: 70px;
+    font-size: 16px;
+    line-height: 50px;
     height: 100%;
     padding: 0 30px;
     border-left: 1px solid #000;
@@ -294,7 +302,7 @@ span.active-rubric {
     border-bottom: 1px solid #dedede;
 }
 .title {
-    font-size: 33px;
+    font-size: 28px;
     line-height: 50px;
     color: #333333;
     font-family: 'Myriad Pro Regular';
