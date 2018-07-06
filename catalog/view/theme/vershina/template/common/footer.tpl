@@ -61,12 +61,13 @@
                     <div class="col-md-3 footer-info">
                         <div>
                             <div class="tels">
+                                <p><?php echo $address; ?></p>
                                 <a href="tel:<?php echo $telephone; ?>"><?php echo $telephone; ?></a>
+                                <p><?php echo $address; ?></p> <!-- тут тоже должен быть другой город -->
                                 <a href="tel:<?php echo $fax; ?>"><?php echo $fax; ?></a>
                             </div>
                             <p><?php echo $open; ?></p>
                             <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a>
-                            <p><?php echo $address; ?></p>
                         </div>
                     </div>
                 </div>
