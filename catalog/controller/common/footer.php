@@ -62,6 +62,7 @@ class ControllerCommonFooter extends Controller {
 		$data['fax'] = $this->config->get('config_fax');
 		$data['slogan'] = $this->config->get('config_slogan');
 		$data['open'] = $this->config->get('config_open');
+		$data['city'] = $this->config->get('config_city');
 		$data['address'] = $this->config->get('config_address');
 		$data['info_a'] = $this->config->get('config_information_a');
 		$data['info_b'] = $this->config->get('config_information_b');
