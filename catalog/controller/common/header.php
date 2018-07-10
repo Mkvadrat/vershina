@@ -248,6 +248,7 @@ class ControllerCommonHeader extends Controller {
 		$data['slogan'] = $this->config->get('config_slogan');
 		$data['open'] = $this->config->get('config_open');
 		$data['address'] = $this->config->get('config_address');
+		$data['city'] = $this->config->get('config_city');
 		$data['info_a'] = $this->config->get('config_information_a');
 		$data['info_b'] = $this->config->get('config_information_b');
 

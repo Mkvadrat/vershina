@@ -136,6 +136,33 @@
 						
 						<?php echo $cart; ?>
 					</div>
+                    <div class="col-md-2 logo">
+						<?php if ($logo) { ?>
+							<a href="<?php echo $home; ?>">
+								<img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" />
+								<span><?php echo $slogan; ?></span>
+							</a>
+						<?php } else { ?>
+							<a href="<?php echo $home; ?>"><?php echo $name; ?><span><?php echo $slogan; ?></span></a>
+						<?php } ?>
+                    </div>
+                    <div class="col-md-2 collback">
+                        <a href="#call-to-me" class="w-button">Обратный звонок</a>
+                    </div>
+                    <div class="col-md-4 header-info">
+                        <span><i class="fas fa-store-alt fa-10x"></i><?php echo $info_a; ?></span>
+						<span><i class="fas fa-truck fa-10x"></i><?php echo $info_b; ?></span>
+						<p><?php echo $open; ?></p>
+                    </div>
+                    <div class="col-md-2 header-contacts">
+						<span><?php echo $address; ?></span>
+						<a href="tel:<?php echo $telephone; ?>"><?php echo $telephone; ?></a>
+						<span><?php echo $city; ?></span> <!-- тут должен быть второй город Симферополь -->
+						<a href="tel:<?php echo $fax; ?>"><?php echo $fax; ?></a>
+                    </div>
+					
+                    <?php echo $cart; ?>
+					
                 </div>
             </div>
         </div>

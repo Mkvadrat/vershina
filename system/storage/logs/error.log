@@ -428,3 +428,4 @@
 2018-06-26 11:45:51 - PHP Notice:  Undefined variable: zone_id in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\account\register.tpl on line 707
 2018-06-26 11:47:35 - PHP Notice:  Undefined variable: zone_id in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\account\register.tpl on line 707
 2018-06-26 11:58:46 - PHP Notice:  Undefined index: text in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\checkout\shipping_method.tpl on line 18
+2018-07-10 16:18:22 - PHP Notice:  Undefined variable: config_city in D:\OpenServer\domains\vershina92.loc\admin\view\template\setting\setting.tpl on line 134
