@@ -120,12 +120,18 @@
                 </div>
               </div>
               <div class="form-group required">
-                <label class="col-sm-2 control-label" for="input-address"><?php echo $entry_address; ?></label>
+                <label class="col-sm-2 control-label" for="input-address"><?php echo $entry_address; ?> 1</label>
                 <div class="col-sm-10">
-                  <textarea name="config_address" placeholder="<?php echo $entry_address; ?>" rows="5" id="input-address" class="form-control"><?php echo $config_address; ?></textarea>
+                  <textarea name="config_address" placeholder="<?php echo $entry_address; ?> 1" rows="5" id="input-address" class="form-control"><?php echo $config_address; ?></textarea>
                   <?php if ($error_address) { ?>
                   <div class="text-danger"><?php echo $error_address; ?></div>
                   <?php } ?>
+                </div>
+              </div>
+              <div class="form-group required">
+                <label class="col-sm-2 control-label" for="input-address"><?php echo $entry_address; ?> 2</label>
+                <div class="col-sm-10">
+                  <textarea name="config_city" placeholder="<?php echo $entry_address; ?> 2" rows="5" id="input-address" class="form-control"><?php echo $config_city; ?></textarea>
                 </div>
               </div>
               <div class="form-group">

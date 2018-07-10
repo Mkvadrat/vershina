@@ -470,6 +470,12 @@ class ControllerSettingSetting extends Controller {
 			$data['config_address'] = $this->config->get('config_address');
 		}
 		
+		if (isset($this->request->post['config_city'])) {
+			$data['config_city'] = $this->request->post['config_city'];
+		} else {
+			$data['config_city'] = $this->config->get('config_city');
+		}
+		
 		if (isset($this->request->post['config_slogan'])) {
 			$data['config_slogan'] = $this->request->post['config_slogan'];
 		} else {
