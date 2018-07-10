@@ -79,7 +79,11 @@ header .w-button {
     width: 100%;
     padding: 0 0 10px;
 }
-.header-top .row>div {
+.main-header {
+    display: flex;
+    flex-direction: row;
+}
+.main-header>div {
     height: 93px;
     display: flex;
     flex-direction: row;
@@ -258,6 +262,7 @@ section {
     background: #f0f0f0;
     float: left;
     width: 100%;
+    margin-bottom: 20px;
 }
 .catalog-list * {
     font-family: 'Ubuntu', sans-serif;
@@ -307,6 +312,8 @@ span.active-rubric {
     color: #333333;
     font-family: 'Myriad Pro Regular';
     margin: 0 0 17px 0;
+    display: inline-block;
+    width: 100%;
 }
 .popular-list,
 .same-products {
@@ -881,6 +888,11 @@ footer .row>div.footer-info {
 .header-top .registrate .row>div {
     height: auto;
     position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 .header-top .registrate .autorise {
     margin: 0 0 0 auto;
@@ -899,6 +911,8 @@ footer .row>div.footer-info {
     line-height: 24px;
     font-family: 'Myriad Pro Regular';
     margin-bottom: 5px;
+    display: inline-block;
+    width: 100%;
 }
 .breadcrumbs ul {
     list-style: none;

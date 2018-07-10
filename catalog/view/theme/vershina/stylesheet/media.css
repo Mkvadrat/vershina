@@ -1,3 +1,74 @@
-@media (min-width: 1360px) {
-    
+@media (max-width: 1200px) {
+    .header-top .header-info p {
+        font-size: 14px;
+    }
+    .header-top .header-info span {
+        font-size: 12px;
+    }
+    .collback .w-button {
+        text-align: center;
+    }
+    .popular-item {
+        padding: 10px;
+    }
+    .to-order a.w-button:first-of-type,
+    .to-order a.w-button:last-of-type,
+    .to-order a.w-button:nth-of-type(1),
+    .to-order a.w-button:nth-of-type(2) {
+        width: 100%;
+        margin-bottom: 15px;
+        margin-top: 0;
+    }
+}
+@media (max-width: 991px) {
+    .header-top div.header-info {
+        display: none;
+    }
+    .logo {
+        flex-basis: 25%;
+    }
+    header {
+        height: 45vmax;
+    }
+    .main-header {
+        justify-content: space-between;
+    }
+    aside {
+        display: inline-block;
+    }
+    aside .catalog-list {
+        margin-bottom: 0;
+    }
+    footer .row>div {
+        margin: 20px 0;
+        width: 25%;
+        float: left;
+    }
+    footer .row>div.footer-info,
+    .footer .menu+.services {
+        border: none;
+    }
+    footer .row>div.footer-info {
+        width: 100%;
+        text-align: center;
+    }
+    .footer-info>div {
+        text-align: left;
+        display: inline-block;
+    }
+    footer .mega-footer .row>div {
+        width: 50%;
+    }
+    .input-group {
+        width: 100%;
+    }
+    .search input {
+        width: 90%;
+    }
+    .search button {
+        width: 10%;
+    }
+    header .menu ul li a {
+        padding: 0 20px;
+    }
 }
