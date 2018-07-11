@@ -60,7 +60,7 @@
 							<?php } ?>
 							
 							<div class="share">
-                                <img src="./image/share.jpg" alt="">
+                                <img src="catalog/view/theme/vershina/image/share.jpg" alt="">
                             </div>
                         </div>
 						

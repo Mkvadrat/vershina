@@ -105,11 +105,13 @@ $(document).ready(function() {
 	});
 	
 	//Настройки темы
-    if($('.footer .menu+.services').innerHeight() >= $('footer .footer-info').innerHeight()) {
-        $('footer .footer-info').innerHeight($('.footer .menu+.services').innerHeight());
-    } else {
-        $('.footer .menu+.services').innerHeight($('footer .footer-info').innerHeight())
-    }
+	if($(window).innerWidth() > 767) {
+		if($('.footer .menu+.services').innerHeight() >= $('footer .footer-info').innerHeight()) {
+			$('footer .footer-info').innerHeight($('.footer .menu+.services').innerHeight());
+		} else {
+			$('.footer .menu+.services').innerHeight($('footer .footer-info').innerHeight())
+		}
+	}
 
     $('.popular-item .name span').dotdotdot({
         height : 48,
@@ -126,13 +128,22 @@ $(document).ready(function() {
 
     $(window).on("scroll", function() {
         if ($(window).scrollTop() > 100) {
-            $('.sticky-bucket').css({right:0});
             $('.sticky-contact-us').css({left:20});
         } else {
-            $('.sticky-bucket').css({right:-90});
             $('.sticky-contact-us').css({left:-81});
         }
     });
+	if($(window).innerWidth() > 767) {
+    	$(window).on("scroll", function() {
+			if ($(window).scrollTop() > 100) {
+				$('.sticky-bucket').css({right:0});
+			} else {
+				$('.sticky-bucket').css({right:-90});
+			}
+		});
+	} else {
+		$('.sticky-bucket').css({right:0});
+	}
 
     
     $('.sticky-contact-us a').fancybox({
