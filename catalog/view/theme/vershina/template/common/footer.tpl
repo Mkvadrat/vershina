@@ -103,7 +103,7 @@
         </footer>
         
         <?php if ($buyoneclick_status) { ?>
-            <div id="boc_order" class="modal fade">
+            <div id="boc_order" class="modal">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <form id="boc_form" action="" role="form">

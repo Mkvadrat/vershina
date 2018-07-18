@@ -15,7 +15,7 @@ $_['text_your_details']    = 'Контактные данные';
 $_['text_your_address']    = 'Ваш Адрес';
 $_['text_newsletter']      = 'Рассылка новостей';
 $_['text_your_password']   = 'Ваш пароль';
-$_['text_agree']           = 'Я прочитал и согласен с условиями <a href="%s" class="agree"><b>%s</b></a>';
+$_['text_agree']           = 'Я принимаю <a href="%s" class="agree"><b>%s</b></a>';
 
 // Entry
 $_['entry_customer_group'] = 'Группа покупателей';

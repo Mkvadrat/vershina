@@ -43,15 +43,6 @@
 
 <!-- BUY ONE CLICK -->
 <?php if ($buyoneclick_status || $buyoneclick_status_category) { ?>
-<script src="catalog/view/javascript/buyoneclick.js" type="text/javascript"></script>
-<?php if ($buyoneclick_validation_status) { ?>
-	<script src="catalog/view/javascript/jquery.mask.min.js" type="text/javascript"></script>
-	<script>
-		$(document).ready(function(){
-			$('#boc_phone').mask('<?php echo $buyoneclick_validation_type; ?>');
-		});
-	</script>
-<?php } ?>
 <?php if ($buyoneclick_ya_status || $buyoneclick_google_status) { ?>
 	<script>
 		function clickAnalytic(){
