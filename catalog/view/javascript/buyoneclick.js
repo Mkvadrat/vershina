@@ -46,7 +46,9 @@ $(document).ready(function() {
 					$('#boc_order').modal('hide');
 					$('#boc_order').on('hidden.bs.modal', function (e) {
 						if (success) {
-							$('#boc_success').modal('show');
+							$('#boc_success').modal('show', {
+								backdrop : false
+							});
 							setTimeout(function(){
 									console.log('success sending!');
 									$('#boc_success').modal('hide');

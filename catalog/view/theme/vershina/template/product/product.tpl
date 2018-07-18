@@ -95,7 +95,7 @@
 								<a id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="w-button"><i class="fas fa-cart-plus fa-10x"></i><?php echo $button_cart; ?></a>
 								
 								<?php if ($buyoneclick_status) { ?>
-									<a class="w-button boc_order_btn" data-toggle="modal" data-target="#boc_order" data-product="<?php echo $heading_title; ?>" data-product_id="<?php echo $product_id; ?>"><?php echo $buyoneclick_name; ?></a>
+									<a class="w-button boc_order_btn" data-toggle="modal" data-target="#boc_order" data-backdrop="false" data-product="<?php echo $heading_title; ?>" data-product_id="<?php echo $product_id; ?>"><?php echo $buyoneclick_name; ?></a>
 								<?php }	?>
 
 								<?php if($button_rent) { ?>
