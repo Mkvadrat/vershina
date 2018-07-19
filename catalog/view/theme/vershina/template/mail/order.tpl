@@ -5,69 +5,15 @@
 <title><?php echo $title; ?></title>
 </head>
 <body style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #000000;">
-<div style="width: 680px;"><a href="<?php echo $store_url; ?>" title="<?php echo $store_name; ?>"><img src="<?php echo $logo; ?>" alt="<?php echo $store_name; ?>" style="margin-bottom: 20px; border: none;" /></a>
-  <p style="margin-top: 0px; margin-bottom: 20px;"><?php echo $text_greeting; ?></p>
-  <?php if ($customer_id) { ?>
-  <p style="margin-top: 0px; margin-bottom: 20px;"><?php echo $text_link; ?></p>
-  <p style="margin-top: 0px; margin-bottom: 20px;"><a href="<?php echo $link; ?>"><?php echo $link; ?></a></p>
-  <?php } ?>
-  <?php if ($download) { ?>
-  <p style="margin-top: 0px; margin-bottom: 20px;"><?php echo $text_download; ?></p>
-  <p style="margin-top: 0px; margin-bottom: 20px;"><a href="<?php echo $download; ?>"><?php echo $download; ?></a></p>
-  <?php } ?>
-  <table style="border-collapse: collapse; width: 100%; border-top: 1px solid #DDDDDD; border-left: 1px solid #DDDDDD; margin-bottom: 20px;">
-    <thead>
-      <tr>
-        <td style="font-size: 12px; border-right: 1px solid #DDDDDD; border-bottom: 1px solid #DDDDDD; background-color: #EFEFEF; font-weight: bold; text-align: left; padding: 7px; color: #222222;" colspan="2"><?php echo $text_order_detail; ?></td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="font-size: 12px;	border-right: 1px solid #DDDDDD; border-bottom: 1px solid #DDDDDD; text-align: left; padding: 7px;"><b><?php echo $text_order_id; ?></b> <?php echo $order_id; ?><br />
-          <b><?php echo $text_date_added; ?></b> <?php echo $date_added; ?><br />
-          <b><?php echo $text_payment_method; ?></b> <?php echo $payment_method; ?><br />
-          <?php if ($shipping_method) { ?>
-          <b><?php echo $text_shipping_method; ?></b> <?php echo $shipping_method; ?>
-          <?php } ?></td>
-        <td style="font-size: 12px;	border-right: 1px solid #DDDDDD; border-bottom: 1px solid #DDDDDD; text-align: left; padding: 7px;"><b><?php echo $text_email; ?></b> <?php echo $email; ?><br />
-          <b><?php echo $text_telephone; ?></b> <?php echo $telephone; ?><br />
-          <b><?php echo $text_ip; ?></b> <?php echo $ip; ?><br />
-          <b><?php echo $text_order_status; ?></b> <?php echo $order_status; ?><br /></td>
-      </tr>
-    </tbody>
-  </table>
-  <?php if ($comment) { ?>
-  <table style="border-collapse: collapse; width: 100%; border-top: 1px solid #DDDDDD; border-left: 1px solid #DDDDDD; margin-bottom: 20px;">
-    <thead>
-      <tr>
-        <td style="font-size: 12px; border-right: 1px solid #DDDDDD; border-bottom: 1px solid #DDDDDD; background-color: #EFEFEF; font-weight: bold; text-align: left; padding: 7px; color: #222222;"><?php echo $text_instruction; ?></td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="font-size: 12px;	border-right: 1px solid #DDDDDD; border-bottom: 1px solid #DDDDDD; text-align: left; padding: 7px;"><?php echo $comment; ?></td>
-      </tr>
-    </tbody>
-  </table>
-  <?php } ?>
-  <table style="border-collapse: collapse; width: 100%; border-top: 1px solid #DDDDDD; border-left: 1px solid #DDDDDD; margin-bottom: 20px;">
-    <thead>
-      <tr>
-        <td style="font-size: 12px; border-right: 1px solid #DDDDDD; border-bottom: 1px solid #DDDDDD; background-color: #EFEFEF; font-weight: bold; text-align: left; padding: 7px; color: #222222;"><?php echo $text_payment_address; ?></td>
-        <?php if ($shipping_address) { ?>
-        <td style="font-size: 12px; border-right: 1px solid #DDDDDD; border-bottom: 1px solid #DDDDDD; background-color: #EFEFEF; font-weight: bold; text-align: left; padding: 7px; color: #222222;"><?php echo $text_shipping_address; ?></td>
-        <?php } ?>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="font-size: 12px;	border-right: 1px solid #DDDDDD; border-bottom: 1px solid #DDDDDD; text-align: left; padding: 7px;"><?php echo $payment_address; ?></td>
-        <?php if ($shipping_address) { ?>
-        <td style="font-size: 12px;	border-right: 1px solid #DDDDDD; border-bottom: 1px solid #DDDDDD; text-align: left; padding: 7px;"><?php echo $shipping_address; ?></td>
-        <?php } ?>
-      </tr>
-    </tbody>
-  </table>
+<div style="width: 720px;"><a href="<?php echo $store_url; ?>" title="<?php echo $store_name; ?>"><img src="<?php echo $logo_b; ?>" alt="<?php echo $store_name; ?>" style="margin-bottom: 20px; border: none;" /></a>
+  <p style="margin-top: 0px; margin-bottom: 20px; font-weight:bold;">Здравствуйте, <?php echo $customer_name; ?>!</p>
+
+  <p style="margin-top: 0px; margin-bottom: 20px;">Благодарим Вас за интерес к товарам нашего интернет-магазина строительного оборудования ООО Вершина <a href="http://www.vershina92.ru">www.vershina92.ru</a></p>
+  <p style="margin-top: 0px; margin-bottom: 20px; font-weight:bold;">Ваш заказ № <?php echo $order_id; ?> принят!</p>
+  <p style="margin-top: 0px; margin-bottom: 20px;">Мы свяжемся с Вами в ближайшее время.</p>
+  
+  <p style="margin-top: 0px; margin-bottom: 20px; font-weight:bold;">Информация о заказе.</p>
+  
   <table style="border-collapse: collapse; width: 100%; border-top: 1px solid #DDDDDD; border-left: 1px solid #DDDDDD; margin-bottom: 20px;">
     <thead>
       <tr>
@@ -111,7 +57,17 @@
       <?php } ?>
     </tfoot>
   </table>
-  <p style="margin-top: 0px; margin-bottom: 20px;"><?php echo $text_footer; ?></p>
+  
+  <?php if ($customer_id) { ?>
+  <p style="margin-top: 0px; margin-bottom: 20px;"><?php echo $text_link; ?> <a href="<?php echo $link; ?>"><?php echo $link; ?></a></p>
+  <?php } ?>
+	
+	<p style="margin-top: 0px; margin-bottom: 20px;">Для просмотра заказа на сайте, пройти по <a href="http://vershina92.ru/order-history/">ссылке</a></p>
+	
+  <p style="margin-top: 0px; margin-bottom: 20px;">Если у Вас есть вопросы по заказу, пожалуйста, ответьте на это письмо.</p>
+  
+  <p style="margin-top: 0px; margin-bottom: 20px;">С уважением, коллектив ООО Вершина.</p>
+  <p style="margin-top: 0px; margin-bottom: 20px;">www.vershina92.ru</p>
 </div>
 </body>
 </html>

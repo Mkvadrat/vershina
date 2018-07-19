@@ -429,3 +429,16 @@
 2018-06-26 11:47:35 - PHP Notice:  Undefined variable: zone_id in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\account\register.tpl on line 707
 2018-06-26 11:58:46 - PHP Notice:  Undefined index: text in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\checkout\shipping_method.tpl on line 18
 2018-07-10 16:18:22 - PHP Notice:  Undefined variable: config_city in D:\OpenServer\domains\vershina92.loc\admin\view\template\setting\setting.tpl on line 134
+2018-07-19 16:05:34 - PHP Notice:  Undefined variable: text_greeting in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\mail\order.tpl on line 9
+2018-07-19 16:51:38 - PHP Notice:  Undefined variable: logo_b in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\mail\order.tpl on line 8
+2018-07-19 16:51:38 - PHP Notice:  Undefined variable: customer_name in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\mail\order.tpl on line 9
+2018-07-19 16:51:39 - PHP Notice:  Undefined variable: logo_b in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\mail\order.tpl on line 8
+2018-07-19 16:51:39 - PHP Notice:  Undefined variable: customer_name in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\mail\order.tpl on line 9
+2018-07-19 16:57:03 - PHP Notice:  Undefined variable: logo_b in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\mail\order.tpl on line 8
+2018-07-19 16:57:03 - PHP Notice:  Undefined variable: customer_name in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\mail\order.tpl on line 9
+2018-07-19 16:57:04 - PHP Notice:  Undefined variable: logo_b in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\mail\order.tpl on line 8
+2018-07-19 16:57:04 - PHP Notice:  Undefined variable: customer_name in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\mail\order.tpl on line 9
+2018-07-19 17:02:31 - PHP Notice:  Undefined variable: logo_b in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\mail\order.tpl on line 8
+2018-07-19 17:02:32 - PHP Notice:  Undefined variable: logo_b in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\mail\order.tpl on line 8
+2018-07-19 17:04:20 - PHP Notice:  Undefined variable: logo_b in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\mail\order.tpl on line 8
+2018-07-19 17:04:22 - PHP Notice:  Undefined variable: logo_b in D:\OpenServer\domains\vershina92.loc\catalog\view\theme\vershina\template\mail\order.tpl on line 8
