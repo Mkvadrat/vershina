@@ -89,7 +89,7 @@
                 </div>
             </div>
             <div id="call-to-me">
-                <h3>Наши менеджеры свяжутся с Вами в течении 1 часа</h3>
+                <h3>Наши менеджеры свяжутся с Вами в течение 1 часа</h3>
                 <div>
                     <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
                         <label for="name">Имя: <input name="name" value="<?php echo $name; ?>" type="text" placeholder="Введите Ваше имя"></label>
