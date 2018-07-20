@@ -419,6 +419,7 @@ class ModelCheckoutOrder extends Model {
 				$data['text_total'] = $language->get('text_new_total');
 				$data['text_footer'] = $language->get('text_new_footer');
 	
+				$data['logo_b'] = $this->config->get('config_url') . 'catalog/view/theme/vershina/image/logo.png';
 				$data['logo'] = $this->config->get('config_url') . 'image/' . $this->config->get('config_logo');
 				$data['store_name'] = $order_info['store_name'];
 				$data['store_url'] = $order_info['store_url'];
@@ -579,7 +580,8 @@ class ModelCheckoutOrder extends Model {
 	
 				// Text Mail
 				$text  = sprintf($language->get('text_new_greeting'), html_entity_decode($order_info['store_name'], ENT_QUOTES, 'UTF-8')) . "\n\n";
-				$text .= $language->get('text_new_order_id') . ' ' . $order_id . "\n";
+				$text .= $language->get('text_new_order_id') . ' ' . $order_id . ' ' . $language->get('text_len') . "\n\n";
+
 				$text .= $language->get('text_new_date_added') . ' ' . date($language->get('date_format_short'), strtotime($order_info['date_added'])) . "\n";
 				$text .= $language->get('text_new_order_status') . ' ' . $order_status . "\n\n";
 	
@@ -636,6 +638,10 @@ class ModelCheckoutOrder extends Model {
 					$text .= $language->get('text_new_download') . "\n";
 					$text .= $order_info['store_url'] . 'index.php?route=account/download' . "\n\n";
 				}
+				
+				$customer_name = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE customer_id = '" . (int)$order_info['customer_id'] . "'");
+
+				$data['customer_name'] = $customer_name->row['firstname'];
 	
 				// Comment
 				if ($order_info['comment']) {
@@ -644,7 +650,7 @@ class ModelCheckoutOrder extends Model {
 				}
 	
 				$text .= $language->get('text_new_footer') . "\n\n";
-	
+			
 				$mail = new Mail();
 				$mail->protocol = $this->config->get('config_mail_protocol');
 				$mail->parameter = $this->config->get('config_mail_parameter');

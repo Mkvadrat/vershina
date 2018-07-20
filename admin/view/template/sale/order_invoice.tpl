@@ -18,7 +18,7 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <td colspan="2"><?php echo $text_order_detail; ?></td>
+          <td colspan="2"><?php echo $text_order_detail; ?>sadsadsadsada</td>
         </tr>
       </thead>
       <tbody>
