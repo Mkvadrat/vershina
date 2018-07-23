@@ -89,7 +89,7 @@
 								<div class="autorise">
 									<a href="<?php echo $account; ?>"><?php echo $text_account; ?></a>
 									<a href="<?php echo $order; ?>"><?php echo $text_order; ?></a>
-									<a href="<?php echo $transaction; ?>"><?php echo $text_transaction; ?></a>
+									<!--<a href="<?php echo $transaction; ?>"><?php echo $text_transaction; ?></a>-->
 									<a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a>
 								</div>
 								<?php } else { ?>

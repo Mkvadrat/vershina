@@ -649,25 +649,6 @@ class ControllerAccountReturn extends Controller {
 
 		$data['continue'] = $this->url->link('common/home');
 		
-		$to = $this->config->get('config_email');
-		$name = $this->config->get('config_name');
-		$title = "New return request";
-		$headers = "From:".$to."\r\n";
-		$headers .= "Reply-To:".$to."\r\n";
-		$headers .= "X-Mailer: PHP/" . phpversion();
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "return ORDER BY `return_id` DESC LIMIT 1");
-		$return_id = $query->row['return_id'];
-		$url = $this->config->get('config_url');
-		$url .= "admin/index.php?route=sale/return/info&return_id=";
-		$url .= $return_id;
-		$message = "There is a new return request waiting at your webstore: $name.\r\n";
-		$message .= "You can view it at:\r\n ";
-		$message .= $url;
-		 
-		if(mail($to, $title, $message, $headers, "-f ".$to)){
-		}else{ echo "Something went wrong while sending notification to the admin"; 
-		}
-
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
 		$data['content_top'] = $this->load->controller('common/content_top');

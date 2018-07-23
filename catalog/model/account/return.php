@@ -5,12 +5,142 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 class ModelAccountReturn extends Model {
+	public function getReturnReason($return_reason_id) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "return_reason WHERE return_reason_id = '" . (int)$return_reason_id . "' AND language_id = '" . (int)$this->config->get('config_language_id') . "'");
+
+		return $query->row;
+	}
+	
 	public function addReturn($data) {
+		/* MailOnReturn */
+		$this->load->model('localisation/return_reason');
+
+		$return_email_subject = "Запрос возврата нового продукта - " . $this->db->escape($data['firstname']) . " " . $this->db->escape($data['lastname']);
+		$return_email_text = "Запрос на возврат нового продукта был сделан в вашем магазине.\n\n";
+		$return_email_text .= "Покупатель: " . $this->db->escape($data['firstname']) . " " . $this->db->escape($data['lastname']) . "\n";
+
+		if (!empty($data['email'])) {
+			$return_email_text .= 'Email: ' . $this->db->escape($data['email']) . "\n";
+		}
+
+		if (!empty($data['telephone'])) {
+			$return_email_text .= 'Телефон: ' . $this->db->escape($data['telephone']) . "\n\n";
+		}
+
+		$return_email_text .= 'Номер заказа: ' . $data['order_id'] . "\n";
+		$return_email_text .= 'Дата заказа: ' . $data['date_ordered'] . "\n";
+		$return_email_text .= 'Товар: ' . $this->db->escape($data['product']) . "\n";
+		$return_email_text .= 'Модель товара: ' . $this->db->escape($data['model']) . "\n\n";
+
+		$return_reason_info = $this->getReturnReason($data['return_reason_id']);
+
+		if (!empty($return_reason_info['name'])) {
+			$return_email_text .= 'Причина возврата: ' . $this->db->escape($return_reason_info['name']) . "\n";
+		}
+
+		if (!empty($data['comment'])) {
+			$return_email_text .= 'Комментарий: ' . $this->db->escape($data['comment']) . "\n\n";
+		}
+
+		if (VERSION >= '2.0.0.0' && VERSION < '2.0.2.0') {
+			$mail = new Mail($this->config->get('config_mail'));
+		} else {
+			$mail = new Mail();
+			$mail->protocol = $this->config->get('config_mail_protocol');
+			$mail->parameter = $this->config->get('config_mail_parameter');
+
+			if (VERSION >= '2.0.2.0') {
+				$mail->smtp_hostname = $this->config->get('config_mail_smtp_hostname');
+				$mail->smtp_username = $this->config->get('config_mail_smtp_username');
+				$mail->smtp_password = html_entity_decode($this->config->get('config_mail_smtp_password'), ENT_QUOTES, 'UTF-8');
+				$mail->smtp_port = $this->config->get('config_mail_smtp_port');
+				$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
+			} else {
+				$mail->hostname = $this->config->get('config_smtp_host');
+				$mail->username = $this->config->get('config_smtp_username');
+				$mail->password = $this->config->get('config_smtp_password');
+				$mail->port = $this->config->get('config_smtp_port');
+				$mail->timeout = $this->config->get('config_smtp_timeout');
+			}
+		}
+
+		$mail->setTo($this->config->get('config_email'));
+		$mail->setFrom($this->config->get('config_email'));
+		$mail->setSender($this->config->get('config_name'));
+		$mail->setSubject(html_entity_decode($return_email_subject, ENT_QUOTES, 'UTF-8'));
+		$mail->setText(html_entity_decode($return_email_text, ENT_QUOTES, 'UTF-8'));
+		$mail->send();
+		
+		$this->addReturnNotificationCustomer($data);
+		/* End MailOnReturn */
+		
 		$this->db->query("INSERT INTO `" . DB_PREFIX . "return` SET order_id = '" . (int)$data['order_id'] . "', customer_id = '" . (int)$this->customer->getId() . "', firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', product = '" . $this->db->escape($data['product']) . "', model = '" . $this->db->escape($data['model']) . "', quantity = '" . (int)$data['quantity'] . "', opened = '" . (int)$data['opened'] . "', return_reason_id = '" . (int)$data['return_reason_id'] . "', return_status_id = '" . (int)$this->config->get('config_return_status_id') . "', comment = '" . $this->db->escape($data['comment']) . "', date_ordered = '" . $this->db->escape($data['date_ordered']) . "', date_added = NOW(), date_modified = NOW()");
 
 		$return_id = $this->db->getLastId();
 
 		return $return_id;
+	}
+	
+	public function addReturnNotificationCustomer($data){
+		/* MailOnReturn */
+		$this->load->model('localisation/return_reason');
+
+		$return_email_subject = "Запрос возврата нового продукта - " . $this->db->escape($data['firstname']) . " " . $this->db->escape($data['lastname']);
+		$return_email_text = "Вы сделали запрос на возврат товара " . $this->db->escape($data['product']) . "\n\n";
+		$return_email_text .= "Покупатель: " . $this->db->escape($data['firstname']) . " " . $this->db->escape($data['lastname']) . "\n";
+
+		if (!empty($data['email'])) {
+			$return_email_text .= 'Email: ' . $this->db->escape($data['email']) . "\n";
+		}
+
+		if (!empty($data['telephone'])) {
+			$return_email_text .= 'Телефон: ' . $this->db->escape($data['telephone']) . "\n\n";
+		}
+
+		$return_email_text .= 'Номер заказа: ' . $data['order_id'] . "\n";
+		$return_email_text .= 'Дата заказа: ' . $data['date_ordered'] . "\n";
+		$return_email_text .= 'Товар: ' . $this->db->escape($data['product']) . "\n";
+		$return_email_text .= 'Модель товара: ' . $this->db->escape($data['model']) . "\n\n";
+
+		$return_reason_info = $this->getReturnReason($data['return_reason_id']);
+
+		if (!empty($return_reason_info['name'])) {
+			$return_email_text .= 'Причина возврата: ' . $this->db->escape($return_reason_info['name']) . "\n";
+		}
+
+		if (!empty($data['comment'])) {
+			$return_email_text .= 'Комментарий: ' . $this->db->escape($data['comment']) . "\n\n";
+		}
+
+		if (VERSION >= '2.0.0.0' && VERSION < '2.0.2.0') {
+			$mail = new Mail($data['email']);
+		} else {
+			$mail = new Mail();
+			$mail->protocol = $this->config->get('config_mail_protocol');
+			$mail->parameter = $this->config->get('config_mail_parameter');
+
+			if (VERSION >= '2.0.2.0') {
+				$mail->smtp_hostname = $this->config->get('config_mail_smtp_hostname');
+				$mail->smtp_username = $this->config->get('config_mail_smtp_username');
+				$mail->smtp_password = html_entity_decode($this->config->get('config_mail_smtp_password'), ENT_QUOTES, 'UTF-8');
+				$mail->smtp_port = $this->config->get('config_mail_smtp_port');
+				$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
+			} else {
+				$mail->hostname = $this->config->get('config_smtp_host');
+				$mail->username = $this->config->get('config_smtp_username');
+				$mail->password = $this->config->get('config_smtp_password');
+				$mail->port = $this->config->get('config_smtp_port');
+				$mail->timeout = $this->config->get('config_smtp_timeout');
+			}
+		}
+
+		$mail->setTo($data['email']);
+		$mail->setFrom($this->config->get('config_email'));
+		$mail->setSender($this->config->get('config_name'));
+		$mail->setSubject(html_entity_decode($return_email_subject, ENT_QUOTES, 'UTF-8'));
+		$mail->setText(html_entity_decode($return_email_text, ENT_QUOTES, 'UTF-8'));
+		$mail->send();
+		/* End MailOnReturn */
 	}
 
 	public function getReturn($return_id) {

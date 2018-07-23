@@ -454,3 +454,6 @@
 2018-07-20 18:01:17 - PHP Notice:  Undefined index: separator in /home/u12971/public_html/vershina/catalog/view/theme/vershina/template/product/search.tpl on line 19
 2018-07-20 18:01:20 - PHP Notice:  Undefined index: separator in /home/u12971/public_html/vershina/catalog/view/theme/vershina/template/product/search.tpl on line 19
 2018-07-21 17:19:45 - PHP Notice:  Undefined index: firstname in /home/u12971/public_html/vershina/catalog/model/checkout/order.php on line 644
+2018-07-23 12:32:33 - PHP Notice:  Undefined property: Cart\Customer::$getFirstName in D:\OpenServer\domains\vershina92.loc\catalog\controller\account\return.php on line 331
+2018-07-23 12:32:33 - PHP Notice:  Undefined property: Cart\Customer::$getLastName in D:\OpenServer\domains\vershina92.loc\catalog\controller\account\return.php on line 331
+2018-07-23 12:32:33 - PHP Warning:  Cannot modify header information - headers already sent by (output started at D:\OpenServer\domains\vershina92.loc\catalog\controller\startup\error.php:39) in D:\OpenServer\domains\vershina92.loc\system\library\response.php on line 17
