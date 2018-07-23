@@ -639,9 +639,13 @@ class ModelCheckoutOrder extends Model {
 					$text .= $order_info['store_url'] . 'index.php?route=account/download' . "\n\n";
 				}
 				
-				$customer_name = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE customer_id = '" . (int)$order_info['customer_id'] . "'");
-
-				$data['customer_name'] = $customer_name->row['firstname'];
+				if($order_info['customer_id']){
+					$customer_name = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE customer_id = '" . (int)$order_info['customer_id'] . "'");
+	
+					$data['customer_name'] = $customer_name->row['firstname'];
+				}else{
+					$data['customer_name'] = $this->request->post['boc_name'];;
+				}
 	
 				// Comment
 				if ($order_info['comment']) {
@@ -694,7 +698,7 @@ class ModelCheckoutOrder extends Model {
 					$data['text_footer'] = '';
 	
 					$data['text_link'] = '';
-					$data['link'] = '';
+					$data['link'] = $order_info['store_url'] . 'index.php?route=account/order/info&order_id=' . $order_id;
 					$data['download'] = '';
 	
 					// Text
