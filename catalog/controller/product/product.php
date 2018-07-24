@@ -242,6 +242,42 @@ class ControllerProductProduct extends Controller {
 				$data['heading_title'] = $product_info['name'];
 			}
 			
+			if (isset($this->request->post['name'])) {
+				$data['name'] = $this->request->post['name'];
+			} else {
+				$data['name'] = $this->customer->getFirstName();
+			}
+			
+			if (isset($this->request->post['phone'])) {
+				$data['phone'] = $this->request->post['phone'];
+			} else {
+				$data['phone'] = $this->customer->getTelephone();
+			}
+	
+			if (isset($this->request->post['email'])) {
+				$data['email'] = $this->request->post['email'];
+			} else {
+				$data['email'] = $this->customer->getEmail();
+			}
+	
+			if (isset($this->request->post['enquiry'])) {
+				$data['enquiry'] = $this->request->post['enquiry'];
+			} else {
+				$data['enquiry'] = '';
+			}
+			
+			if (isset($this->request->post['link'])) {
+				$data['link'] = $this->request->post['link'];
+			} else {
+				$data['link'] = $this->request->get['product_id'];
+			}
+			
+			if (isset($this->request->post['product_name'])) {
+				$data['product_name'] = $this->request->post['product_name'];
+			} else {
+				$data['product_name'] =  $product_info['name'];
+			}
+			
 			$this->document->setDescription($product_info['meta_description']);
 			$this->document->setKeywords($product_info['meta_keyword']);
 			$this->document->addLink($this->url->link('product/product', 'product_id=' . $this->request->get['product_id']), 'canonical');
@@ -498,42 +534,6 @@ class ControllerProductProduct extends Controller {
 					$rating = (int)$result['rating'];
 				} else {
 					$rating = false;
-				}
-				
-				if (isset($this->request->post['name'])) {
-					$data['name'] = $this->request->post['name'];
-				} else {
-					$data['name'] = $this->customer->getFirstName();
-				}
-				
-				if (isset($this->request->post['phone'])) {
-					$data['phone'] = $this->request->post['phone'];
-				} else {
-					$data['phone'] = $this->customer->getTelephone();
-				}
-		
-				if (isset($this->request->post['email'])) {
-					$data['email'] = $this->request->post['email'];
-				} else {
-					$data['email'] = $this->customer->getEmail();
-				}
-		
-				if (isset($this->request->post['enquiry'])) {
-					$data['enquiry'] = $this->request->post['enquiry'];
-				} else {
-					$data['enquiry'] = '';
-				}
-				
-				if (isset($this->request->post['link'])) {
-					$data['link'] = $this->request->post['link'];
-				} else {
-					$data['link'] = $this->request->get['product_id'];
-				}
-				
-				if (isset($this->request->post['product_name'])) {
-					$data['product_name'] = $this->request->post['product_name'];
-				} else {
-					$data['product_name'] =  $product_info['name'];
 				}
 				
 				$productbenefits = $this->model_catalog_product->getProductBenefitsbyProductId($result['product_id']);

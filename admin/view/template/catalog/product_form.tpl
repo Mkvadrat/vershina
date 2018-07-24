@@ -950,6 +950,7 @@
                 <table class="table table-striped table-bordered table-hover">
                   <thead>
                     <tr>
+											<td></td>
                       <td class="text-left"><?php echo $entry_image; ?></td>
                     </tr>
                   </thead>
@@ -965,15 +966,16 @@
                 <table id="images" class="table table-striped table-bordered table-hover">
                   <thead>
                     <tr>
+											<td></td>
                       <td class="text-left"><?php echo $entry_additional_image; ?></td>
                       <td class="text-right"><?php echo $entry_sort_order; ?></td>
                       <td></td>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody id="imagemanager_id">
                     <?php $image_row = 0; ?>
                     <?php foreach ($product_images as $product_image) { ?>
-                    <tr id="image-row<?php echo $image_row; ?>">
+											<td class="text-center imagemanager"><i class="fa fa-bars"></i></td>
                       <td class="text-left"><a href="" id="thumb-image<?php echo $image_row; ?>" data-toggle="image" class="img-thumbnail"><img src="<?php echo $product_image['thumb']; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a><input type="hidden" name="product_image[<?php echo $image_row; ?>][image]" value="<?php echo $product_image['image']; ?>" id="input-image<?php echo $image_row; ?>" /></td>
                       <td class="text-right"><input type="text" name="product_image[<?php echo $image_row; ?>][sort_order]" value="<?php echo $product_image['sort_order']; ?>" placeholder="<?php echo $entry_sort_order; ?>" class="form-control" /></td>
                       <td class="text-left"><button type="button" onclick="$('#image-row<?php echo $image_row; ?>').remove();" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
@@ -1593,8 +1595,22 @@ function addSpecial() {
   <script type="text/javascript"><!--
 var image_row = <?php echo $image_row; ?>;
 
+function addImages(files, path, item) {
+	html  = '<tr class="separator" id="image-row' + image_row + '">';
+	html += '  <td class="text-center imagemanager"><i class="fa fa-bars"></i></td>';
+	html += '  <td class="text-left"><a href="" id="thumb-image' + image_row + '"data-toggle="image" class="img-thumbnail"><img src="' + files + '" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /><input type="hidden" name="product_image[' + image_row + '][image]" value="' + path + '" id="input-image' + image_row + '" /></td>';
+	html += '  <td class="text-right"><input type="text" name="product_image[' + image_row + '][sort_order]" value="' + item + '" placeholder="<?php echo $entry_sort_order; ?>" class="form-control" /></td>';
+	html += '  <td class="text-left"><button type="button" onclick="$(\'#image-row' + image_row  + '\').remove();" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
+	html += '</tr>';
+
+	$('#images tbody').append(html);
+
+	image_row++;
+}
+
 function addImage() {
 	html  = '<tr id="image-row' + image_row + '">';
+	html += '  <td class="text-center imagemanager"><i class="fa fa-bars"></i></td>';
 	html += '  <td class="text-left"><a href="" id="thumb-image' + image_row + '"data-toggle="image" class="img-thumbnail"><img src="<?php echo $placeholder; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a><input type="hidden" name="product_image[' + image_row + '][image]" value="" id="input-image' + image_row + '" /></td>';
 	html += '  <td class="text-right"><input type="text" name="product_image[' + image_row + '][sort_order]" value="" placeholder="<?php echo $entry_sort_order; ?>" class="form-control" /></td>';
 	html += '  <td class="text-left"><button type="button" onclick="$(\'#image-row' + image_row  + '\').remove();" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
@@ -1726,6 +1742,29 @@ $('#tab-extra li:first-child a').tab('show');
 <?php foreach($product_tabs as $key => $tab){  ?>
 $('#tab-extra #language<?php echo $key; ?> li:first-child a').tab('show');
 <?php } ?>
+//--></script>
+<script type="text/javascript"><!--
+	$(document).ready(function() {
+		$('#imagemanager_id').sortable({
+			axis: 'y',
+			forcePlaceholderSize: true,
+			placeholder: 'group_move_placeholder',
+			stop: function(event, ui)
+			{	
+				$('#imagemanager_id input[name$="[sort_order]"]').each(function(i) {
+					$(this).val(i);
+				});			
+			}
+		});	
+		
+		$("#imagemanager_id").mousedown(function() {
+			$(".imagemanager").addClass("grabbing");
+		});	
+		
+		$("#imagemanager_id").mouseup(function() {
+			$(".imagemanager").removeClass("grabbing");
+		});	
+	});	
 //--></script>
 </div>
 <?php echo $footer; ?>

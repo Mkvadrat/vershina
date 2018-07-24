@@ -773,11 +773,13 @@ footer .row>div.footer-info {
     visibility: hidden;
 }
 
-#rent-form label:last-child {
+#rent-form label:last-of-type {
     position: relative;
+    line-height: normal;
+    margin-bottom: 15px;
 }
 
-#rent-form label:last-child::before {
+#rent-form label:last-of-type::before {
     content: ' ';
     background: #fff;
     display: block;
