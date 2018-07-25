@@ -14,9 +14,10 @@
 <script type="text/javascript" src="view/javascript/jquery/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="view/javascript/imagemanager/jquery/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" media="screen" href="view/javascript/imagemanager/jquery/jquery-ui.css">
-<script type="text/javascript" src="view/javascript/imagemanager/elFinder/js/elfinder.full.js"></script>
-<link rel="stylesheet" type="text/css" media="screen" href="view/javascript/imagemanager/elFinder/css/elfinder.full.css">
+<script type="text/javascript" src="view/javascript/imagemanager/elFinder/js/elfinder.min.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="view/javascript/imagemanager/elFinder/css/elfinder.min.css">
 <link rel="stylesheet" type="text/css" media="screen" href="view/javascript/imagemanager/elFinder/css/theme.css">
+<script type="text/javascript" src="view/javascript/imagemanager/jquery.asyncqueue.js"></script>
 <link rel="stylesheet" type="text/css" media="screen" href="view/javascript/imagemanager/sortablemod/imagemanager.css">
 <script type="text/javascript" src="view/javascript/bootstrap/js/bootstrap.min.js"></script>
 <link href="view/stylesheet/bootstrap.css" type="text/css" rel="stylesheet" />

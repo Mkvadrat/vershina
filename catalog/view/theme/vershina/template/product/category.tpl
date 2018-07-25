@@ -34,8 +34,63 @@
                     <?php echo $description; ?>
                 </div>
                 <?php } ?>
-                
+				
+				<?php if ($categories) { ?>
+					<?php //if (count($categories) <= 5) { ?>
+						<div class="row">
+							<div class="col-sm-3">
+								<ul>
+								  <?php foreach ($categories as $category) { ?>
+								  <li><a href="<?php echo $category['href']; ?>"><img src="<?php echo $category['image']; ?>"><?php echo $category['name']; ?></a></li>
+								  <?php } ?>
+								</ul>
+							</div>
+						</div>
+					<?php /*} else { ?>
+						<div class="row">
+							<?php foreach (array_chunk($categories, ceil(count($categories) / 4)) as $categories) { ?>
+								<div class="col-sm-3">
+									<ul>
+									  <?php foreach ($categories as $category) { ?>
+									  <li><a href="<?php echo $category['href']; ?>"><img src="<?php echo $category['image']; ?>"><?php echo $category['name']; ?></a></li>
+									  <?php } ?>
+									</ul>
+								</div>
+							<?php } ?>
+						</div>
+					<?php }*/ ?>
+				<?php } ?>
+				
                 <?php if ($products) { ?>
+				<div class="col-md-4 col-xs-6">
+					<div class="form-group input-group input-group-sm">
+						<label class="input-group-addon" for="input-sort"><?php echo $text_sort; ?></label>
+						<select id="input-sort" class="form-control" onchange="location = this.value;">
+							<?php foreach ($sorts as $sorts) { ?>
+							<?php if ($sorts['value'] == $sort . '-' . $order) { ?>
+							<option value="<?php echo $sorts['href']; ?>" selected="selected"><?php echo $sorts['text']; ?></option>
+							<?php } else { ?>
+							<option value="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></option>
+							<?php } ?>
+							<?php } ?>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-3 col-xs-6">
+					<div class="form-group input-group input-group-sm">
+						<label class="input-group-addon" for="input-limit"><?php echo $text_limit; ?></label>
+						<select id="input-limit" class="form-control" onchange="location = this.value;">
+							<?php foreach ($limits as $limits) { ?>
+							<?php if ($limits['value'] == $limit) { ?>
+							<option value="<?php echo $limits['href']; ?>" selected="selected"><?php echo $limits['text']; ?></option>
+							<?php } else { ?>
+							<option value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
+							<?php } ?>
+							<?php } ?>
+						</select>
+					</div>
+				</div>
+				
                 <div class="category-list">
 					<div class="content"></div>
                     <?php foreach ($products as $product) { ?>

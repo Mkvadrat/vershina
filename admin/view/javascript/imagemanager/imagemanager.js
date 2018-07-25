@@ -1,7 +1,7 @@
 function getURLVar(key) {
 	var value = [];
 
-	var query = String(document.location).split('?');
+	var query = document.location.search.split('?');
 
 	if (query[1]) {
 		var part = query[1].split('&');
@@ -138,8 +138,10 @@ $(document).ready(function() {
 			$('#modal-image').remove();
 
 			$.ajax({
-				url: 'index.php?route=common/filemanager&token=' + getURLVar('token') + '&target=' + $element.parent().find('input').attr('id') + '&thumb=' + $element.attr('id'),
+				url: 'index.php?route=common/filemanager&token=' + getURLVar('token'),
+				method: "GET",
 				dataType: 'html',
+				data: { thumb : $element.attr('id'), target : $element.parent().find('input').attr('id') },
 				beforeSend: function() {
 					$button.prop('disabled', true);
 					if ($icon.length) {
@@ -163,29 +165,36 @@ $(document).ready(function() {
 		});
 		
 		$('#button-imagemanager').on('click', function() {
-			$('#modal-image').remove();
+			var $button = $(this);
+			var $icon   = $button.find('> i');
+			
+			$('#modal-imagemanager').remove();
 
 			$.ajax({
-				url: 'index.php?route=common/imagemanager&token=' + getURLVar('token') + '&target=' + $element.parent().find('input').attr('id') + '&thumb=' + $element.attr('id'),
+				url: 'index.php?route=common/imagemanager&token=' + getURLVar('token'),
+				method: "GET",
 				dataType: 'html',
+				data: { thumb : $element.attr('id'), target : $element.parent().find('input').attr('id') },
 				beforeSend: function() {
-					$('#button-image i').replaceWith('<i class="fa fa-circle-o-notch fa-spin"></i>');
-					$('#button-image').prop('disabled', true);
+					$button.prop('disabled', true);
+					if ($icon.length) {
+						$icon.attr('class', 'fa fa-circle-o-notch fa-spin');
+					}
 				},
 				complete: function() {
-					$('#button-image i').replaceWith('<i class="fa fa-pencil"></i>');
-					$('#button-image').prop('disabled', false);
+					$button.prop('disabled', false);
+					if ($icon.length) {
+						$icon.attr('class', 'fa fa-pencil');
+					}
 				},
 				success: function(html) {
-					$('body').append('<div id="modal-image" class="modal">' + html + '</div>');
+					$('body').append('<div id="modal-imagemanager" class="modal">' + html + '</div>');
 
-					$('#modal-image').modal('show');
+					$('#modal-imagemanager').modal('show');
 				}
 			});
 
-			$element.popover('hide', function() {
-				$('.popover').remove();
-			});
+			$element.popover('destroy');
 		});
 
 		$('#button-clear').on('click', function() {

@@ -7,9 +7,7 @@ class ControllerCommonImageManager extends Controller {
 		$this->document->setTitle($this->language->get('text_imagemanager'));
 			
 		$data['heading_title'] = $this->language->get('text_imagemanager');
-		
-		$data['powered'] = $this->language->get('text_powered');
-		
+				
 		$string = $this->request->server['HTTP_REFERER'];
 		
 		if(stristr($string, 'banner_id')){
@@ -41,25 +39,22 @@ class ControllerCommonImageManager extends Controller {
         } else {
             $data['target'] = '';
         }
-			
-		if ($this->config->get('imagemanager_language')) {
-			$data['language'] = strtolower($this->config->get('imagemanager_language'));
-		} else {
-			$data['language'] = 'en';
-		}
-								
+											
 		$this->response->setOutput($this->load->view('common/imagemanager.tpl', $data));
 	}
 	
 	public function getTmb(){
 		
 		if (isset($this->request->get['thumb'])) {
-			$link = urldecode($this->request->get['thumb']);
+			$str_link = str_replace('\\','/', $this->request->get['thumb']);
+			$link = urldecode($str_link);
 		}
-		
+				
 		$this->load->model('tool/image');
 		
 		$data['thumb'] = $this->model_tool_image->resize($link, 100, 100);
+		
+		$data['link'] = $link;
 		
 		$this->response->setOutput(json_encode($data));
 	}
@@ -93,6 +88,7 @@ class ControllerCommonImageManager extends Controller {
 						'image/png',
 						'image/x-png',
 						'image/gif',
+						'image/svg+xml',
 						'application/x-shockwave-flash'
 					),
 					'uploadOverwrite'=>true,
@@ -111,8 +107,8 @@ class ControllerCommonImageManager extends Controller {
 				array(
 					'id'            => '1',
 					'driver'        => 'Trash',
-					'path'          => DIR_IMAGE . 'files/.trash/',
-					'tmbURL'        => $catalog_protocol . 'files/.trash/.tmb/',
+					'path'          => DIR_IMAGE . 'files/trash/',
+					'tmbURL'        => $catalog_protocol . 'files/trash/.tmb/',
 					'winHashFix'    => DIRECTORY_SEPARATOR !== '/', // to make hash same to Linux one on windows too
 					'uploadMaxSize'=>'200M',
 					'defaults' => array('read' => true, 'write' => true),
@@ -122,6 +118,7 @@ class ControllerCommonImageManager extends Controller {
 						'image/png',
 						'image/x-png',
 						'image/gif',
+						'image/svg+xml',
 						'application/x-shockwave-flash'
 					),
 					'uploadOrder'=> array( 'allow', 'deny' ),     // Same as above

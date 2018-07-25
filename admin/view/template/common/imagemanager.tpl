@@ -13,15 +13,11 @@
   </div>
 </div>
 
-<!-- ADD ELFINDER LANGUAGE -->
-<script type="text/javascript" src="view/javascript/imagemanager/elFinder/js/i18n/elfinder.<?php echo $language; ?>.js"></script>
-
 <script>
 $(document).ready(function() {	
 	$('#elfinder').elfinder({
 		url: 'index.php?route=common/imagemanager/init&token=' + getURLVar('token'),
 		width: '100%',
-		lang: '<?php echo $language;?>',
 		resizable: false,
 		dragUploadAllow: true,
 		destroyOnClose: false,
@@ -35,23 +31,9 @@ $(document).ready(function() {
 			if(count(files) > 1){
 				$.each(files, function(item, file) {
 					if ((file.read && file.hash)) {
-						$.ajax({
-							url: 'index.php?route=common/imagemanager/getTmb&thumb=' + encodeURIComponent(fm.path(file.hash)) + '&token=' + getURLVar('token'),
-							method: 'POST',
-							dataType: 'json',
-							async: false,
-							success: function(data) {	
-								<?php if ($separator) { ?>
-								<?php foreach ($languages as $language_id) { ?>
-									parent.addImages(<?php echo $language_id['language_id']; ?>, data.thumb, fm.path(file.hash), item);
-								<?php } ?>
-								<?php }else{ ?>
-									parent.addImages(data.thumb, fm.path(file.hash), item);
-								<?php } ?>
-								
-								$('#modal-image').modal('hide');
-							}
-						});
+						queue = new $.AsyncQueue();
+						queue.add(function (queue) { callback(queue, fm, file, item); });
+						queue.run();
 					}
 				});
 			}else{	
@@ -66,10 +48,10 @@ $(document).ready(function() {
 									$('#<?php echo $thumb; ?>').find('img').attr('src', data.thumb);
 								<?php } ?>
 								<?php if ($target) { ?>
-									$('#<?php echo $target; ?>').attr('value', fm.path(file.hash));
+									$('#<?php echo $target; ?>').attr('value', data.link);
 								<?php } ?>
 								
-								$('#modal-image').modal('hide');
+								$('#modal-imagemanager').modal('hide');
 							}
 						});
 					}
@@ -106,6 +88,29 @@ $(document).ready(function() {
 			   if(object.hasOwnProperty(prs)) count++;
 	  } 
 	  return count; 
-	}	
+	}
+	
+	function callback(queue, fm, file, item){
+		queue.pause();
+		
+		$.ajax({
+			url: 'index.php?route=common/imagemanager/getTmb&thumb=' + encodeURIComponent(fm.path(file.hash)) + '&token=' + getURLVar('token'),
+			method: 'POST',
+			dataType: 'json',
+			success: function(data) {
+				<?php if ($separator) { ?>
+				<?php foreach ($languages as $language_id) { ?>
+					parent.addImages(<?php echo $language_id['language_id']; ?>, data.thumb, data.link, item);
+				<?php } ?>
+				<?php }else{ ?>
+					parent.addImages(data.thumb, data.link, item);
+				<?php } ?>
+				
+				$('#modal-imagemanager').modal('hide');
+				
+				queue.run();
+			}
+		});
+	}
 });
 </script>
