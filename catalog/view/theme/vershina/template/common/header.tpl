@@ -20,6 +20,7 @@
 
 <!-- SCRIPTS -->
 <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="catalog/view/javascript/buyoneclick.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.dotdotdot/3.2.2/jquery.dotdotdot.js"></script>
 <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
@@ -43,7 +44,6 @@
 
 <!-- BUY ONE CLICK -->
 <?php if ($buyoneclick_status || $buyoneclick_status_category) { ?>
-<script src="catalog/view/javascript/buyoneclick.js" type="text/javascript"></script>
 <?php if ($buyoneclick_ya_status || $buyoneclick_google_status) { ?>
 	<script>
 		function clickAnalytic(){

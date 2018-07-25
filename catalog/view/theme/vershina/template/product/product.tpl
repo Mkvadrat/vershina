@@ -242,7 +242,7 @@
 
 								
 
-								<a href="<?php echo $delivery; ?>" class="w-button">Условия и стоимость доставки</a>
+								<a href="<?php echo $delivery; ?>" class="w-button" target="_blank">Условия и стоимость доставки</a>
 
 							</div>
 

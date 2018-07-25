@@ -346,7 +346,7 @@
 
             </div>
 
-            <div id="boc_success" class="modal fade">
+            <div id="boc_success" class="modal fade"  data-backdrop="false" >
 
                 <div class="modal-dialog">
 
