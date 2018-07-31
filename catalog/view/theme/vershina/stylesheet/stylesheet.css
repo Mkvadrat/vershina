@@ -1933,3 +1933,20 @@ td a.btn.btn-primary {
     color: #f8eb0d;
     border: 1px solid #333;
 }
+.category-of-category ul {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0 0 20px;
+}
+.category-of-category li {
+    width: 23.5%;
+    margin-bottom: 20px;
+}
+.category-of-category li:nth-of-type(4n-2),
+.category-of-category li:nth-of-type(4n-1),
+.category-of-category li:nth-of-type(4n) {
+    margin-left: 2%;
+}

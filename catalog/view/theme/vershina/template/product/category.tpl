@@ -37,14 +37,15 @@
 				
 				<?php if ($categories) { ?>
 					<?php //if (count($categories) <= 5) { ?>
-						<div class="row">
-							<div class="col-sm-3">
+					<!--	<div class="row">
+							<div class="col-sm-3"> -->
+                            <div class="category-of-category">
 								<ul>
 								  <?php foreach ($categories as $category) { ?>
 								  <li><a href="<?php echo $category['href']; ?>"><img src="<?php echo $category['image']; ?>"><?php echo $category['name']; ?></a></li>
 								  <?php } ?>
 								</ul>
-							</div>
+					<!--	</div> -->
 						</div>
 					<?php /*} else { ?>
 						<div class="row">
