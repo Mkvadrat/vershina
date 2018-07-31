@@ -62,7 +62,6 @@
 				<?php } ?>
 				
                 <?php if ($products) { ?>
-				<div class="col-md-4 col-xs-6">
 					<div class="form-group input-group input-group-sm">
 						<label class="input-group-addon" for="input-sort"><?php echo $text_sort; ?></label>
 						<select id="input-sort" class="form-control" onchange="location = this.value;">
@@ -75,8 +74,6 @@
 							<?php } ?>
 						</select>
 					</div>
-				</div>
-				<div class="col-md-3 col-xs-6">
 					<div class="form-group input-group input-group-sm">
 						<label class="input-group-addon" for="input-limit"><?php echo $text_limit; ?></label>
 						<select id="input-limit" class="form-control" onchange="location = this.value;">
@@ -89,7 +86,6 @@
 							<?php } ?>
 						</select>
 					</div>
-				</div>
 				
                 <div class="category-list">
 					<div class="content"></div>

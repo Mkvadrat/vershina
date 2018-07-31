@@ -70,11 +70,6 @@ header {
     background-repeat: no-repeat;
     /* box-shadow: inset 0 120px 120px -43px rgba(0, 0, 0, 0.75);  */
     /* padding-top: 20px; */
-    height: 35vmax;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
 }
 
 header * {
@@ -243,14 +238,18 @@ aside, section {
     margin-top: 17px;
 }
 
-.search {
+.search,
+.search #search {
     display: inline-block;
     width: 100%;
     float: left;
-    margin-bottom: 17px;
+    margin-bottom: 22px;
+}
+.search #search {
+    margin: 0;
 }
 
-.search input {
+.search #search input {
     display: inline-block;
     height: 50px;
     margin: 0;
@@ -268,7 +267,7 @@ aside, section {
     outline: none;
 }
 
-.search input:focus, .search input:-moz-placeholder, .search input::-moz-placeholder, .search input:-ms-input-placeholder, .search input::-webkit-input-placeholder {
+.search #search input:focus, .search #search input:-moz-placeholder, .search #search input::-moz-placeholder, .search #search input:-ms-input-placeholder, .search #search input::-webkit-input-placeholder {
     outline: none;
     font-family: 'Ubuntu', sans-serif;
     font-size: 16px;
@@ -276,11 +275,11 @@ aside, section {
     color: #a6a6a6;
 }
 
-.search button:focus {
+.search #search button:focus {
     outline: none;
 }
 
-.search button {
+.search #search button {
     display: inline-block;
     float: left;
     width: 30%;
@@ -291,7 +290,7 @@ aside, section {
     background: #f6f6f6;
 }
 
-.search button svg {
+.search #search button svg {
     color: #20282e;
     line-height: 50px;
     font-size: 18px;
@@ -1909,4 +1908,28 @@ label.checkbox-inline {
 td a.btn.btn-primary {
     float: none;
     line-height: 34px;
+}
+.input-group {
+    width: 31%;
+    float: left;
+}
+.input-group+.input-group {
+    margin-left: 3.5%;
+}
+.page section .input-group select,
+.page section .input-group label {
+    border-radius:  0;
+}
+.page section .input-group select {
+    border-left: none;
+}
+.page section .input-group select:focus {
+    border-color: rgb(248, 235, 13);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(248, 235, 13, 0.09);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(248, 235, 13, 0.09);
+}
+.page section .input-group label {
+    background: #333;
+    color: #f8eb0d;
+    border: 1px solid #333;
 }

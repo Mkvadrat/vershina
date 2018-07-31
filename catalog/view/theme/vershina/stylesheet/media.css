@@ -61,10 +61,10 @@
     .input-group {
         width: 100%;
     }
-    .search input {
+    .search #search input {
         width: 90%;
     }
-    .search button {
+    .search #search button {
         width: 10%;
     }
     header .menu ul li a {
@@ -76,7 +76,9 @@
         left: 130px;
         display: inline-block;
     }
-
+    .input-group {
+        width: 31%;
+    }
 }
 @media (max-width: 768px) {
     header .menu ul {
@@ -140,6 +142,12 @@
     footer .mega-footer .row>div {
         width: 100%;
     }
+    .input-group {
+        width: 49%;
+    }
+    .input-group+.input-group {
+        margin-left: 2%;
+    }
 }
 @media (max-width: 550px) {
     header {
@@ -199,10 +207,10 @@
     .footer .services ul {
         padding: 0;
     }
-    .search input {
+    .search #search input {
         width: 80%;
     }
-    .search button {
+    .search #search button {
         width: 20%;
     }
 }
@@ -223,6 +231,15 @@
     }
     .footer-info .tels a {
         position: static;
+    }
+    .input-group {
+        width: 100%;
+    }
+    .input-group+.input-group {
+        margin-left: 0;
+    }
+    .page section .input-group label {
+        width: 90px;
     }
 }
 @media (max-width: 380px) {

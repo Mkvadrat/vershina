@@ -74,7 +74,30 @@
 <?php foreach ($analytics as $analytic) { ?>
 <?php echo $analytic; ?>
 <?php } ?>
-
+<!-- быстрый стиль для меню -->
+<style>
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 35vmax;
+	position: relative;
+}
+header .menu {
+    position: absolute;
+    bottom: 0;
+}
+@media screen and (min-width:768px) {
+	nav#menu {
+		display: none;
+	}
+}
+</style>
+<script>
+$(document).ready(function() {$('header .menu').css('position','static');});
+</script>
+<!-- быстрый стиль для меню -->
 </head>
 <body>
 	<div class="page">
