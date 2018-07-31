@@ -24,86 +24,78 @@
                     <hr>
                 </div>
                 <h1 class="title"><?php echo $heading_title; ?></h1>
-<div class="row">
-<div class="col-md-6 col-sm-6">
-                <p><strong>Офис и склад г. Севастополь</strong></p>
-                <p>299053, г. Севастополь, ул. Вакуленчука, 33</p>
-                <p><strong>Телефон:</strong> <a href="tel:+79782140140">+7 (978) 2-140-140</a>, <a href="tel:+79782130130">+7-9782-130-130</a></p>
-                <p><strong>E-mail:</strong> <a href="mailto:info@vershina92.ru">info@vershina92.ru</a></p>
-</div>  
-<div class="col-md-6 col-sm-6">
-    <div class="map">
-        <div id="map-contacts-first" style="width:100%; height:100%"></div>
-        <?php if($geocode){ ?>
-            <script type="text/javascript">
-            var myMap;
-            var myMap;
-            ymaps.ready(init);
-            function init(){
-                var myCoords = [<?php echo $geocode; ?>];  
-                var myGeocoder = ymaps.geocode(myCoords);
-                myGeocoder.then(
-                    function (res){
-                        var firstGeoObject = res.geoObjects.get(0),
-                        myMap = new ymaps.Map ("map-contacts-first",{
-                            center: firstGeoObject.geometry.getCoordinates(),
-                            zoom: 15
-                        });
-                        mySecondMap = new ymaps.Map ("map-contacts-second",{
-                            center: [44.932689, 34.044011],
-                            zoom: 15
-                        });
-                        var myPlacemark = new ymaps.Placemark(
-                            firstGeoObject.geometry.getCoordinates(),
-                            {
-                                iconContent: ''
-                            },
-                            {
-                                preset: 'twirl#blueStretchyIcon'
+                <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <?php echo $full_a_address; ?>
+                </div>  
+                <div class="col-md-6 col-sm-6">
+                    <div class="map">
+                        <div id="map-contacts-first" style="width:100%; height:100%"></div>
+                        <?php if($geocode){ ?>
+                            <script type="text/javascript">
+                            var myMap;
+                            var myMap;
+                            ymaps.ready(init);
+                            function init(){
+                                var myCoords = [<?php echo $geocode; ?>];  
+                                var myGeocoder = ymaps.geocode(myCoords);
+                                myGeocoder.then(
+                                    function (res){
+                                        var firstGeoObject = res.geoObjects.get(0),
+                                        myMap = new ymaps.Map ("map-contacts-first",{
+                                            center: firstGeoObject.geometry.getCoordinates(),
+                                            zoom: 15
+                                        });
+                                        mySecondMap = new ymaps.Map ("map-contacts-second",{
+                                            center: [<?php echo $geocode_b; ?>],
+                                            zoom: 15
+                                        });
+                                        var myPlacemark = new ymaps.Placemark(
+                                            firstGeoObject.geometry.getCoordinates(),
+                                            {
+                                                iconContent: ''
+                                            },
+                                            {
+                                                preset: 'twirl#blueStretchyIcon'
+                                            }
+                                        );
+                                        var mySecondPlacemark = new ymaps.Placemark([<?php echo $geocode_b; ?>],
+                                            {
+                                                iconContent: ''
+                                            },
+                                            {
+                                                preset: 'twirl#blueStretchyIcon'
+                                            }
+                                        );
+                                        //myMap.behaviors.disable('scrollZoom');
+                                        //mySecondMap.behaviors.disable('scrollZoom');
+                                        myMap.geoObjects.add(myPlacemark);
+                                        mySecondMap.geoObjects.add(mySecondPlacemark);
+                                        myMap.controls.add(new ymaps.control.ScaleLine()).add('typeSelector');
+                                        mySecondMap.controls.add(new ymaps.control.ScaleLine()).add('typeSelector');
+                                    },
+                                    function (err){
+                                    alert(err.message);
+                                });
                             }
-                        );
-                        var mySecondPlacemark = new ymaps.Placemark([44.932689, 34.044011],
-                            {
-                                iconContent: ''
-                            },
-                            {
-                                preset: 'twirl#blueStretchyIcon'
-                            }
-                        );
-                        //myMap.behaviors.disable('scrollZoom');
-                        //mySecondMap.behaviors.disable('scrollZoom');
-                        myMap.geoObjects.add(myPlacemark);
-                        mySecondMap.geoObjects.add(mySecondPlacemark);
-                        myMap.controls.add(new ymaps.control.ScaleLine()).add('typeSelector');
-                        mySecondMap.controls.add(new ymaps.control.ScaleLine()).add('typeSelector');
-                    },
-                    function (err){
-                    alert(err.message);
-                });
-            }
-            </script>
-        <?php } ?>	
-    </div>
-</div>  
-</div>
-<div class="row">
-<div class="col-md-6 col-sm-6">
-                <p><strong>Офис и склад г. Симферополь</strong></p>
-                <p>г. Симферополь, ул. Узловая, 20</p>
-                <p><strong>Телефон:</strong> <a href="tel:+79780237070">+7 (978) 023-70-70</a></p>
-                <p><strong>E-mail:</strong> <a href="mailto:info@vershina92.ru">info@vershina92.ru</a></p>
-</div>                  
-<div class="col-md-6 col-sm-6">
-    <div class="map">
-        <div id="map-contacts-second" style="width:100%; height:100%"></div>
-        
-    </div>
-</div>          
-</div>       
-                <p><strong>Режим работы:</strong> Пн. — Пт.: с 9-00 до 18-00 Сб.: с 9-00 до 15-00</p>
-                <br>
-                <p class="about-us-txt">Возведение зданий различной этажности и назначения предусматривает использование различных строительных материалов и оборудования. От качества техники во многом зависит процесс проведения работ, а также безопасность рабочих. Принимая это во внимание, компания «Вершина» предлагает купить строительное оборудование высокого качества по доступной цене. Также вы можете взять технику в аренду. Эта услуга очень актуальна в случаях, когда покупка строительного оборудования не рентабельна. Аренда позволит вам существенно сэкономить финансовые средства.</p>
-            
+                            </script>
+                        <?php } ?>	
+                    </div>
+                </div>  
+                </div>
+                <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <?php echo $full_b_address; ?>
+                </div>                  
+                <div class="col-md-6 col-sm-6">
+                    <div class="map">
+                        <div id="map-contacts-second" style="width:100%; height:100%"></div>
+                    </div>
+                </div>          
+                </div>
+                
+                <?php echo $information_d; ?>
+                
                 <h2 class="sub-title">Обратная связь</h2>
                 <div id="contact-to-me">
                     <div>

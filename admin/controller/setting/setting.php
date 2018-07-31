@@ -470,6 +470,18 @@ class ControllerSettingSetting extends Controller {
 			$data['config_address'] = $this->config->get('config_address');
 		}
 		
+		if (isset($this->request->post['config_full_a_address'])) {
+			$data['config_full_a_address'] = $this->request->post['config_full_a_address'];
+		} else {
+			$data['config_full_a_address'] = $this->config->get('config_full_a_address');
+		}
+		
+		if (isset($this->request->post['config_full_b_address'])) {
+			$data['config_full_b_address'] = $this->request->post['config_full_b_address'];
+		} else {
+			$data['config_full_b_address'] = $this->config->get('config_full_b_address');
+		}
+		
 		if (isset($this->request->post['config_city'])) {
 			$data['config_city'] = $this->request->post['config_city'];
 		} else {
@@ -486,6 +498,12 @@ class ControllerSettingSetting extends Controller {
 			$data['config_geocode'] = $this->request->post['config_geocode'];
 		} else {
 			$data['config_geocode'] = $this->config->get('config_geocode');
+		}
+		
+		if (isset($this->request->post['config_b_geocode'])) {
+			$data['config_b_geocode'] = $this->request->post['config_b_geocode'];
+		} else {
+			$data['config_b_geocode'] = $this->config->get('config_b_geocode');
 		}
 
 		if (isset($this->request->post['config_email'])) {
@@ -546,6 +564,12 @@ class ControllerSettingSetting extends Controller {
 			$data['config_information_c'] = $this->request->post['config_information_c'];
 		} else {
 			$data['config_information_c'] = $this->config->get('config_information_c');
+		}
+		
+		if (isset($this->request->post['config_information_d'])) {
+			$data['config_information_d'] = $this->request->post['config_information_d'];
+		} else {
+			$data['config_information_d'] = $this->config->get('config_information_d');
 		}
 		
 		if (isset($this->request->post['config_soc_links'])) {

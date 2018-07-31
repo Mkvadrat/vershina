@@ -42,6 +42,12 @@ class ControllerInformationContact extends Controller {
 		$data['entry_enquiry'] = $this->language->get('entry_enquiry');
 		
 		$data['contacts'] = html_entity_decode($this->config->get('config_contacts'));
+		
+		$data['full_a_address'] = html_entity_decode($this->config->get('config_full_a_address'));
+		
+		$data['full_b_address'] = html_entity_decode($this->config->get('config_full_b_address'));
+		
+		$data['information_d'] = html_entity_decode($this->config->get('config_information_d'));
 
 		$data['button_map'] = $this->language->get('button_map');
 
@@ -60,6 +66,7 @@ class ControllerInformationContact extends Controller {
 		$data['store'] = $this->config->get('config_name');
 		$data['address'] = nl2br($this->config->get('config_address'));
 		$data['geocode'] = $this->config->get('config_geocode');
+		$data['geocode_b'] = $this->config->get('config_b_geocode');
 		$data['geocode_hl'] = $this->config->get('config_language');
 		$data['telephone'] = $this->config->get('config_telephone');
 		$data['fax'] = $this->config->get('config_fax');

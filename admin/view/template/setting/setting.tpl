@@ -135,9 +135,27 @@
                 </div>
               </div>
               <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-full-a-information">Полный адрес 1 на странице контактов</label>
+                <div class="col-sm-10">
+                  <textarea name="config_full_a_address" placeholder="Полный адрес 1 на странице контактов" rows="5" id="input-full-a-information" class="form-control summernote"><?php echo $config_full_a_address; ?></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-full-b-information">Полный адрес 2 на странице контактов</label>
+                <div class="col-sm-10">
+                  <textarea name="config_full_b_address" placeholder="Полный адрес 2 на странице контактов" rows="5" id="input-full-b-information" class="form-control summernote"><?php echo $config_full_b_address; ?></textarea>
+                </div>
+              </div>
+              <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-geocode"><span data-toggle="tooltip" data-container="#tab-general" title="<?php echo $help_geocode; ?>"><?php echo $entry_geocode; ?></span></label>
                 <div class="col-sm-10">
                   <input type="text" name="config_geocode" value="<?php echo $config_geocode; ?>" placeholder="<?php echo $entry_geocode; ?>" id="input-geocode" class="form-control" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-geocode">Геокод 2</label>
+                <div class="col-sm-10">
+                  <input type="text" name="config_b_geocode" value="<?php echo $config_b_geocode; ?>" placeholder="Геокод 2" id="input-geocode" class="form-control" />
                 </div>
               </div>
               <div class="form-group required">
@@ -186,6 +204,12 @@
                 <label class="col-sm-2 control-label" for="input-information">Информациионные данные 3</label>
                 <div class="col-sm-10">
                   <textarea name="config_information_c" placeholder="Информациионные данные" rows="5" id="input-information" class="form-control summernote"><?php echo $config_information_c; ?></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-information">Информациионные данные 4</label>
+                <div class="col-sm-10">
+                  <textarea name="config_information_d" placeholder="Информациионные данные" rows="5" id="input-information" class="form-control summernote"><?php echo $config_information_d; ?></textarea>
                 </div>
               </div>
               <div class="form-group">
